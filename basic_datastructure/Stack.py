@@ -14,7 +14,7 @@ class Stack:
 
     def pop(self):
         if len(self.items) > 0:
-            self.items.pop()
+            return self.items.pop()
         else:
             print("error occured. stack is empty, abort pop to prevent stack underflow")
 

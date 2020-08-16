@@ -19,7 +19,8 @@ class CircularQueue:
     def dequeue(self):
         if self.size()==0:
             return ("Queue Empty!")
-        data = self.queue[self.head]
+        data = self.queue.pop(self.head)
+        # data = self.queue[self.head]
         self.head = (self.head + 1) % self.maxSize
         return data
 

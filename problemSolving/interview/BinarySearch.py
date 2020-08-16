@@ -1,28 +1,36 @@
-# Binary Search Tree 문제 예시 (주사위)
-# 시간 복잡도: O(n + 6k) = O(n)
-# O(n) : 딕셔너리 생성
-# O(6k): 딕셔너리에서 가장 큰 value를 찾는 과정에서 걸리는 시간
-# 공간 복잡도: O(6+k+2)            dictionary, k, max_freq,max_key
+# binary search
+# 시간복잡도 O(log N)
 
-def top_k_frequent_number(nums,k):
-    num_map = {1:0,2:0,3:0,4:0,5:0,6:0}
+def binary_search(list, l, r):
+    if len(list) < 1:
+        return -1
 
-    for num in nums:
-        num_map[num] += 1
+    while l < r:
+        mid = (l + r) // 2
+        if list[mid] == "F":
+            r = mid
+        else:
+            l = mid + 1
 
-    ret = []
-    while k > 0:
-        max_freq = 0
-        max_key = 0
-        for key in num_map:
-            if num_map[key] > max_freq:
-                max_freq = num_map[key]
-                max_key = key
-        ret.append(max_key)
-        del num_map[max_key]
-        k -= 1
-    return ret
+    return l if list[l] == "F" else -1
 
 
-print(top_k_frequent_number([3,2,3,1,2,5,3,6,2,4],2))
-print(top_k_frequent_number([1,1,1,2,2,3,3,4,4],3))
+input = ["S", "S", "S", "F", "F", "F", "F", "F", "F", "F"]
+idx = binary_search(input, 0, len(input)-1)
+print(idx)
+
+input = ["F", "F", "F"]
+idx = binary_search(input, 0, len(input)-1)
+print(idx)
+
+input = ["S", "S", "S"]
+idx = binary_search(input, 0, len(input)-1)
+print(idx)
+
+input = ["S"]
+idx = binary_search(input, 0, len(input)-1)
+print(idx)
+
+input = []
+idx = binary_search(input, 0, len(input)-1)
+print(idx)

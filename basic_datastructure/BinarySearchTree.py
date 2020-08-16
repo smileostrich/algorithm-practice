@@ -71,7 +71,7 @@ class BinarySearchTree:
                 self.head = self.head.left
             # 4) Node to be removed has two children.
             else:
-                self.head.val = self.__most_left_val_from_right_node(self.head.right).val
+                self.head.val = self.mim199(self.head.right).val
                 self.__removeitem(self.head, self.head.right, self.head.val)
         else:
             if self.head.val > item:

@@ -13,10 +13,10 @@ def bfs(graph, start):
         adjacencyList[edge[0]].append(edge[1])
 
     while queue:
-        current = queue.pop()
+        current = queue.pop(0)
         for neighbor in adjacencyList[current]:
-            if not neighbor in visitedList:
-                queue.insert(0,neighbor)
+            if neighbor not in visitedList:
+                queue.append(neighbor)
         visitedList.append(current)
     return visitedList
 
