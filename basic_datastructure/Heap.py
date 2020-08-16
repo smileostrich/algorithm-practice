@@ -1,14 +1,5 @@
 # list
 
-def make_heap(list):
-    n = len(list)
-    for k in range(n-1, -1, -1):
-        heapify_down(k, n)
-
-
-def heapify_down(k, n):
-    while
-
 
 
 # linked list
