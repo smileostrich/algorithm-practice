@@ -1,29 +1,61 @@
-# dp
+# 20분 200819
+# pypy memory : 129784 time : 172
 import sys
 
-N = int(sys.stdin.readline())
+N = int(sys.stdin.readline().rstrip())
+
+# li = [] * (N+1)
 li = [0] * (N+1)
+count = 1
+
+if N == 1:
+    print(0)
+elif N == 2:
+    print(1)
+elif N == 3:
+    print(1)
+else:
+    li[2] = 1
+    li[3] = 1
+    for i in range(4, N+1):
+        if i%3 == 0 and i%2 == 0:
+            li[i] = min(li[i//3], li[i//2], li[i-1]) + 1
+        elif i % 3 == 0:
+            li[i] = min(li[i//3], li[i-1]) + 1
+        elif i % 2 == 0:
+            li[i] = min(li[i//2], li[i-1]) + 1
+        else:
+            li[i] = li[i-1] + 1
+        count += 1
+    print(li[-1])
 
 
-def cal_3(i):
-    return li[i//3] + 1
-
-
-def cal_2(i):
-    return li[i // 2] + 1
-
-
-for i in range(2, N+1):
-    if i%3 == 0 and i%2 == 0:
-        li[i] = min(cal_3(i), cal_2(i), li[i-1] + 1)
-    elif i%3 == 0:
-        li[i] = min(cal_3(i), li[i-1] + 1)
-    elif i%2 == 0:
-        li[i] = min(cal_2(i), li[i-1] + 1)
-    else:
-        li[i] = li[i-1] + 1
-
-print(li[N])
+# 전에 짠 소스
+# import sys
+#
+# N = int(sys.stdin.readline())
+# li = [0] * (N+1)
+#
+#
+# def cal_3(i):
+#     return li[i//3] + 1
+#
+#
+# def cal_2(i):
+#     return li[i // 2] + 1
+#
+#
+# for i in range(2, N+1):
+#     if i%3 == 0 and i%2 == 0:
+#         li[i] = min(cal_3(i), cal_2(i), li[i-1] + 1)
+#     elif i%3 == 0:
+#         li[i] = min(cal_3(i), li[i-1] + 1)
+#     elif i%2 == 0:
+#         li[i] = min(cal_2(i), li[i-1] + 1)
+#     else:
+#         li[i] = li[i-1] + 1
+#
+# print(li[N])
 
 # 다른 사람들은 어떻게 짰는지 비교해보기
 # n = int(input())
@@ -76,16 +108,16 @@ print(li[N])
 
 
 # Bottom-Up(For문 이용)
-n = int(input())
-d = [0]*(n+1)
-d[1] = 0
-for i in range(2, n+1):
-    d[i] = d[i-1] + 1
-    if i%2 == 0 and d[i] > d[i//2] + 1:
-        d[i] = d[i//2] + 1
-    if i%3 == 0 and d[i] > d[i//3] + 1:
-        d[i] = d[i//3] + 1
-print(d[n])
+# n = int(input())
+# d = [0]*(n+1)
+# d[1] = 0
+# for i in range(2, n+1):
+#     d[i] = d[i-1] + 1
+#     if i%2 == 0 and d[i] > d[i//2] + 1:
+#         d[i] = d[i//2] + 1
+#     if i%3 == 0 and d[i] > d[i//3] + 1:
+#         d[i] = d[i//3] + 1
+# print(d[n])
 
 
 # Top Bottom (not DP)
