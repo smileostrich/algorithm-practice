@@ -1,6 +1,22 @@
 # list
 
+def parent(list, idx):
+    if idx != 1:
+        return idx/2
 
+
+def left(list, idx):
+    if 2*idx <= len(list):
+        return 2*idx
+
+
+def right(list, idx):
+    if 2*idx + 1 <= len(list):
+        return 2 * idx + 1
+
+
+def max_heapify(list, idx):
+    l
 
 # linked list
 # class Heap:

@@ -1,8 +1,6 @@
 def heapsort(a):
     def swap(a,i,j):
-        tmp = a[i]
-        a[i] = a[j]
-        a[j] = tmp
+        a[i], a[j] = a[j], a[i]
 
     def siftdown(a, i, size):
         l = 2*i+1
@@ -18,7 +16,7 @@ def heapsort(a):
 
     def heapify(a, size):
         p = (size//2)-1
-        while p>=0:
+        while p >= 0:
             siftdown(a, p, size)
             p -= 1
 
