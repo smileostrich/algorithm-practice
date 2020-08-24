@@ -1,22 +1,39 @@
 # list
 
-def parent(list, idx):
-    if idx != 1:
-        return idx/2
+def max_heapify(arr, n, idx):
+    largest = idx  # Initialize largest as root
+    l = 2 * idx + 1
+    r = 2 * idx + 2
+
+    if l < n and arr[idx] < arr[l]:
+        largest = l
+
+    if r < n and arr[largest] < arr[r]:
+        largest = r
+
+    if largest != idx:
+        arr[idx], arr[largest] = arr[largest], arr[idx]
+        max_heapify(arr, n, largest)
+
+def heapSort(arr):
+    n = len(arr)
+
+    # build heap
+    for i in range(n // 2 - 1, -1, -1):
+        max_heapify(arr, n, i)
+
+    # sorting
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]
+        max_heapify(arr, i, 0)
 
 
-def left(list, idx):
-    if 2*idx <= len(list):
-        return 2*idx
-
-
-def right(list, idx):
-    if 2*idx + 1 <= len(list):
-        return 2 * idx + 1
-
-
-def max_heapify(list, idx):
-    l
+arr = [12, 11, 13, 5, 6, 7]
+heapSort(arr)
+n = len(arr)
+print("Sorted array is")
+for i in range(n):
+    print("%d" % arr[i]),
 
 # linked list
 # class Heap:

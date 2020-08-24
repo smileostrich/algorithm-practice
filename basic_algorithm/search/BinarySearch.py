@@ -17,7 +17,7 @@ def binarySearch2(arr, val):
         mid = (first + last) // 2
         if arr[mid] == val:
             return mid
-        if arr[mid] > val:
+        elif arr[mid] > val:
             last = mid-1
         else:
             first = mid+1

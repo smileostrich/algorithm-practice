@@ -1,7 +1,11 @@
 import unittest
 
-print([0,0] + [1])
-print([0,0] + [1]*(3-1))
+
+for i in range(5, 0, -1):
+    print(i)
+
+# print([0,0] + [1])
+# print([0,0] + [1]*(3-1))
 
 # test = {1:3,2:4}
 # print(test.popitem())
