@@ -1,8 +1,9 @@
 import unittest
 
 
-for i in range(5, 0, -1):
-    print(i)
+
+# for i in range(5, 0, -1):
+#     print(i)
 
 # print([0,0] + [1])
 # print([0,0] + [1]*(3-1))

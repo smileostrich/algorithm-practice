@@ -12,7 +12,7 @@ def binarySearch(array, value, low, high):
 
 # 비재귀
 def binarySearch2(arr, val):
-    first, last = 0, arr.len()
+    first, last = 0, len(arr)
     while first <= last:
         mid = (first + last) // 2
         if arr[mid] == val:
@@ -23,3 +23,5 @@ def binarySearch2(arr, val):
             first = mid+1
     return -1
 
+
+print(binarySearch2([1,1,1,2,2],2))
