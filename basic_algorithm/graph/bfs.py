@@ -1,3 +1,5 @@
+adj = {1:[2,5],2:[1,3,5],3:[2],4:[7],5:[1,2,6],6:[5],7:[4]}
+
 def BFS(s, adj):
     level = {s: 0}
     parent = {s: None}
@@ -13,6 +15,11 @@ def BFS(s, adj):
                     next.append(v)
         frontier = next
         i += 1
+    print(i)
+    print(frontier)
+    print(parent)
+    print(level)
+BFS(1,adj)
 
 # deque
 # from collections import deque
