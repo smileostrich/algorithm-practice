@@ -1,6 +1,23 @@
 import unittest
 
 
+print([1,2,3]*3)
+
+
+li = {(3,4):None,(1,2):(3,4)}
+def test(li, a, b, c):
+    tmp = li[(a, b)]
+    c += 1
+    if tmp != None:
+        return test(li, *tmp, c)
+    else:
+        return c
+
+print(test(li, 1,2,3))
+
+
+# test = ['12345']
+# print(test[0][1])
 
 
 # li = [1,2,3]

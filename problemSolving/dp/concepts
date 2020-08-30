@@ -1,0 +1,45 @@
+0Dynamic Programming
+===================
+= optimization
+= careful brute force
+
+### concepts
+- memoize(remember)
+- re-use solutions(to subproblems that help solve the problem)
+- guessing(=찍기)
+
+### memoization
+subproblems * (time/solve subproblem)
+하위문제의 수 * 하위문제를 푸는데 걸리는 시간 (즉, 재귀는 세지 않음)
+(여기서 하위문제마다 푸는시간이 다를경우 각각 계산해줘야함= 복잡)
+e.g. fibonacci = O(n) * O(1)
+(사실 logN도 가능)
+
+### bottom-up
+actually, this is topological sort of subproblem dependcy DAG(Direct Acyclic Graph)
+
+- advantages
+can often save space
+
+### guessing
+try all guesses(&take best one)(you can forget the others)
+
+### subproblem
+subproblem dependencies should acyclic(if not, infinite time)
+상향식 알고리즘에서 subproblem dependent DAg -> topological sort
+
+### make cyclic graph to acyclic graph
+each layer to next layer(= make matrix)(=V*V)(also subproblems = V^2)
+
+### 5 easy steps to DP:
+1. define subproblems (뭐가 하위문제들이 될까?)
+2. guess(part of solution)
+3. relate subproblem solutions(하위 문제의 답을 연결 = 재귀 사용 = 하위 문제의 실행 시간)
+    - 주로 추측의 갯수(2번)과 같은 상수 시간을 가짐
+4. (recurse & memoize) or (build DP table bottom up) 두가지 중 한가지 방법 선택
+    - build DP table bottom up = 재귀와 메모이제이션을 간단한 for문으로 바꾸는것
+    - 즉, 재귀냐 for문이냐 둘중 선택하란 말임
+    - 실행시간 동일
+    - subproblem 재귀가 acyclic인지 체크(i.e. 위상정렬을 가지는지 체크)
+    - 위상정렬의 경우 알고리즘을 직접 사용하는게 아니라 생각만.
+5. solve original problem
