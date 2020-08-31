@@ -1,4 +1,5 @@
 # 위상정렬이려면 dag 이어야함 (= 사이클이 없어야함)
+# dfs로 구현
 vertexList = ['a', 'b', 'c', 'd', 'e']
 edgeList = [('a', 'd'), ('b', 'd'), ('d', 'e'), ('c', 'e')]
 adjList = {i:[] for i in vertexList}
