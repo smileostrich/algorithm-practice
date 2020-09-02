@@ -1,30 +1,22 @@
-#dfs 여러가지 방법
-
-vertexList = ['0', '1', '2', '3', '4', '5', '6']
-edgeList = [(0,1), (0,2), (1,0), (1,3), (2,0), (2,4), (2,5), (3,1), (4,2), (4,6), (5,2), (6,4)]
-graphs = (vertexList, edgeList)
+# prove node
+from collections import defaultdict
 
 
-def dfs(current_node, row, foot_prints):
-    foot_prints += [current_node]
-    for search_node in range(len(row[current_node])):
-        if row[current_node][search_node] and search_node not in foot_prints:
-            foot_prints = dfs(search_node, row, foot_prints)
-
-    return foot_prints
+vertexList = [0,1,2]
+edgeList = [(0,1), (1,0), (0,2), (2,0), (1,2), (2,1)]
+adjList = defaultdict(int)
+# adjList i: [] for i in vertexList
 
 
-def DFS_with_adj_list(graph, root):
-    visited = []
-    stack = [root]
 
-    while stack:
-        n = stack.pop()
-        if n not in visited:
-            visited.append(n)
-            stack += graph[n] - set(visited)
-    return visited
+for edge in edgeList:
+    adjList[edge[0]] = (edge[1])
 
-print(DFS_with_adj_list(graphs, 0))
 
-print(dfs(graphs, 0))
+print(adjList)
+print(adjList[3])
+# for k, v in test.items():
+#     print(k)
+#     print(type(k))
+#     print(v)
+#     print(type(v))

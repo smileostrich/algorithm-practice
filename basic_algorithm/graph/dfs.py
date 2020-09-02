@@ -1,28 +1,32 @@
 # 정점 s(시작점)가 없을때 모든 vertex들을 s로 설정하며 위상정렬, 사이클 유무 등 판단
 vertexList = ['0', '1', '2', '3', '4', '5', '6']
 edgeList = [(0,1), (0,2), (1,0) , (1,3) , (2,0) , (2,4) , (2,5) , (3,1), (4,2) , (4,6), (5,2), (6,4)]
-graphs = (vertexList, edgeList)
-adjList = [[] for _ in vertexList]
-for edge in edgeList:
-    adjList[edge[0]].append(edge[1])
+
 
 # mit 소스 (위상정렬, 사이클 유무 문제풀때 편함)
 parent = {s:None}
-def dfs_visit(stack, adj, s):
-    for v in adj[s]:
-        if v not in parent:
-            parent[v] = s
-            dfs_visit(stack, adj, v)
+def dfs(vList, adj, s):
+    for neighbor in adj[s]:
+        if neighbor not in parent:
+            parent[neighbor] = s
+            dfs(vList, adj, neighbor)
 
-def dfs(stack, adj):
+
+def dfs_v(vList, adj):
     parent = {}
-    for s in stack:
-        if s not in parent:
-            parent[s] = None
-            dfs_visit(stack, adj, s)
-print(dfs(stack, adjList, 0))
+    for current in vList:
+        if current not in parent:
+            parent[current] = None
+            dfs_v(vList, adj, current)
+
+
 
 # 일반적인 dfs 알고리즘
+# graphs = (vertexList, edgeList)
+# adjList = [[] for _ in vertexList]
+# for edge in edgeList:
+#     adjList[edge[0]].append(edge[1])
+
 # def dfs(adjList, start):
 #     visitedVertex = []
 #     stack = [start]

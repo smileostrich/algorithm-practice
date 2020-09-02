@@ -1,19 +1,42 @@
 import unittest
 
 
-print([1,2,3]*3)
 
 
-li = {(3,4):None,(1,2):(3,4)}
-def test(li, a, b, c):
-    tmp = li[(a, b)]
-    c += 1
-    if tmp != None:
-        return test(li, *tmp, c)
-    else:
-        return c
+ft = 0
 
-print(test(li, 1,2,3))
+def test(ft):
+    ft += 1
+
+test(ft)
+print(ft)
+
+
+
+# a = 4
+# b = 3
+# re = [4, 5]
+# if a and b:
+#     print('?')
+# if b not in re:
+#     print('b')
+# if a and b not in re:
+#     print('suc')
+
+
+# print([1,2,3]*3)
+#
+#
+# li = {(3,4):None,(1,2):(3,4)}
+# def test(li, a, b, c):
+#     tmp = li[(a, b)]
+#     c += 1
+#     if tmp != None:
+#         return test(li, *tmp, c)
+#     else:
+#         return c
+#
+# print(test(li, 1,2,3))
 
 
 # test = ['12345']

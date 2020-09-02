@@ -5,18 +5,27 @@ edgeList = [('a', 'd'), ('b', 'd'), ('d', 'e'), ('c', 'e')]
 adjList = {i:[] for i in vertexList}
 for v1, v2 in edgeList:
     adjList[v1].append(v2)
+print(adjList)
+
+parent = {}
+time = {}
+def dfs(vList, adj, s):
+    ft = 0
+    for neighbor in adj[s]:
+        if neighbor not in parent:
+            parent[neighbor] = s
+            dfs(vList, adj, neighbor)
+    ft += 1
+    time[s] = ft
+
+def dfs_v(vList, adj):
+    parent = {}
+
+    for s in vList:
+        if s not in parent:
+            parent[s] = None
+            dfs(vList, adj, s)
 
 
-def dfs(adj, s):
-    stack = [s]
-    visited = []
-    while stack:
-        current = stack.pop()
-        visited.append(current)
-        for neighbor in adj[current]:
-            if neighbor not in visited:
-                stack.append(neighbor)
-    return visited
-
-for
-print(dfs(adjList, 'a'))
+dfs_v(vertexList, adjList)
+print(parent, time)
