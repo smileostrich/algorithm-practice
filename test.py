@@ -1,7 +1,8 @@
 import unittest
 
 
-
+li= [1, 2]
+li.
 
 ft = 0
 
