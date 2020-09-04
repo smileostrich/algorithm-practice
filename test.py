@@ -1,16 +1,39 @@
 import unittest
 
+import math
+from heapdict import heapdict
 
-li= [1, 2]
-li.
+test = heapdict()
+adjList = {'A': [('B', 10), ('C', 3)], 'B': [('C', 1), ('D', 2)], 'C': [('B', 4), ('D', 8), ('E', 2)], 'D': [('E', 7)], 'E': [('D', 9)]}
+vList = [2,3,4,5,1]
+pqueue = []
+d = d = {i:math.inf for i in vList}
+for v in vList:
+    heapdict.heappush(pqueue, [v, d[v]])
+print(pqueue)
+print(adjList['A'])
+for a,b in adjList['A']:
+    print(a,b)
 
-ft = 0
-
-def test(ft):
-    ft += 1
-
-test(ft)
-print(ft)
+# from collections import defaultdict
+#
+# class Graph:
+#     def __init__(self, vertices):
+#         self.V = vertices
+#         self.graph = defaultdict(lambda: [])
+#
+#     def add_edge(self, v, u, w):
+#         self.graph[v].append((u, w))
+#
+#     def __str__(self):
+#         result = ''
+#         for v in self.V:
+#             result += f'{v}: {str(self.graph[v])}, \n'
+#         return result
+#
+#
+# g = Graph(['A', 'B', 'C', 'D', 'E'])
+# print(g.V)
 
 
 

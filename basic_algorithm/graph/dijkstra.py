@@ -1,59 +1,126 @@
-import sys
+# 다익스트라는 list, heap, fibonacci heap 등을 사용해서 구성하는데,
+# 피보나치는 구현복잡도 높고, heap은 decrease-key 방식과, insert 방식으로 나뉘는데
+# 피보나치에서는 decrease-key가 빠르지만, 단순 heap에서는 insert방식이 빠르다. (링크 참조)
+# 링크 : http://www.cs.utexas.edu/users/shaikat/papers/TR-07-54.pdf
+# Queue          |  T_e   |  T_d   |  T_k   | w/o Dec-Key |   w/Dec-Key
+# ---------------+--------+--------+--------+-------------+---------------
+# Binary Heap    |O(log N)|O(log N)|O(log N)| O(M log N)  |   O(M log N)
+# Binomial Heap  |O(log N)|O(log N)|O(log N)| O(M log N)  |   O(M log N)
+# Fibonacci Heap |  O(1)  |O(log N)|  O(1)  | O(M log N)  | O(M + N log N)
+
+import math
+import heapq
 
 
-class Graph():
-    def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [[0 for column in range(vertices)]
-                      for row in range(vertices)]
+vList = ['A', 'B', 'C', 'D', 'E']
+eList = [('A', 'B', 10), ('A', 'C', 3), ('B', 'C', 1), ('C', 'B', 4), ('B', 'D', 2), ('C', 'D', 8), ('D', 'E', 7), ('E', 'D', 9), ('C', 'E', 2)]
+adjList = {i:[] for i in vList}
+for e1, e2, w in eList:
+    adjList[e1].append((e2, w))
 
-    def printSolution(self, dist):
-        print("Vertex tDistance from Source")
-        for node in range(self.V):
-            print(node, "t", dist[node])
+print(adjList)
 
-    def minDistance(self, dist, sptSet):
-        min = sys.maxsize
+def dijkstra(adjList, s):
+    pqueue = []
+    dist = {i:math.inf for i in vList}
+    parent = {i:[] for i in vList}
+    dist[s] = 0
 
-        for v in range(self.V):
-            if dist[v] < min and sptSet[v] == False:
-                min = dist[v]
-                min_index = v
+    def relax(u, v, w):
+        if dist[v] > dist[u] + w:
+            dist[v] = dist[u] + w
+            heapq.heappush(pqueue, (dist[v], v))
+            parent[v] = u
 
-        return min_index
+    for v in vList:
+        heapq.heappush(pqueue, (dist[v], v))
 
-    def dijkstra(self, src):
+    while pqueue:
+        k, u = heapq.heappop(pqueue)
+        if k <= dist[u]:
+            for v, w in adjList[u]:
+                relax(u, v, w)
 
-        dist = [sys.maxsize] * self.V
-        dist[src] = 0
-        sptSet = [False] * self.V
-
-        for cout in range(self.V):
-            u = self.minDistance(dist, sptSet)
-            sptSet[u] = True
-
-            for v in range(self.V):
-                if self.graph[u][v] > 0 and \
-                        sptSet[v] == False and \
-                        dist[v] > dist[u] + self.graph[u][v]:
-                    dist[v] = dist[u] + self.graph[u][v]
-
-        self.printSolution(dist)
+    return dist, parent
 
 
-g = Graph(9)
-g.graph = [[0, 4, 0, 0, 0, 0, 0, 8, 0],
-           [4, 0, 8, 0, 0, 0, 0, 11, 0],
-           [0, 8, 0, 7, 0, 4, 0, 0, 2],
-           [0, 0, 7, 0, 9, 14, 0, 0, 0],
-           [0, 0, 0, 9, 0, 10, 0, 0, 0],
-           [0, 0, 4, 14, 10, 0, 2, 0, 0],
-           [0, 0, 0, 0, 0, 2, 0, 1, 6],
-           [8, 11, 0, 0, 0, 0, 1, 0, 7],
-           [0, 0, 2, 0, 0, 0, 6, 7, 0]
-           ]
+def shortest_path(s, e):
+    route, parent = dijkstra(adjList, s)
+    path = [e]
+    current = e
+    print(parent)
+    while parent[current]:
+        path.insert(0, parent[current])
+        current = parent[current]
+    print(path)
+    if s not in path:
+        return f'"{s}" 에서 "{e}"로 가는 경로가 존재하지 않습니다.'
 
-g.dijkstra(0)
+    return path
+
+
+print(shortest_path('B', 'E'))
+
+
+
+
+
+# import sys
+#
+#
+# class Graph():
+#     def __init__(self, vertices):
+#         self.V = vertices
+#         self.graph = [[0 for column in range(vertices)]
+#                       for row in range(vertices)]
+#
+#     def printSolution(self, dist):
+#         print("Vertex tDistance from Source")
+#         for node in range(self.V):
+#             print(node, "t", dist[node])
+#
+#     def minDistance(self, dist, sptSet):
+#         min = sys.maxsize
+#
+#         for v in range(self.V):
+#             if dist[v] < min and sptSet[v] == False:
+#                 min = dist[v]
+#                 min_index = v
+#
+#         return min_index
+#
+#     def dijkstra(self, src):
+#
+#         dist = [sys.maxsize] * self.V
+#         dist[src] = 0
+#         sptSet = [False] * self.V
+#
+#         for cout in range(self.V):
+#             u = self.minDistance(dist, sptSet)
+#             sptSet[u] = True
+#
+#             for v in range(self.V):
+#                 if self.graph[u][v] > 0 and \
+#                         sptSet[v] == False and \
+#                         dist[v] > dist[u] + self.graph[u][v]:
+#                     dist[v] = dist[u] + self.graph[u][v]
+#
+#         self.printSolution(dist)
+#
+#
+# g = Graph(9)
+# g.graph = [[0, 4, 0, 0, 0, 0, 0, 8, 0],
+#            [4, 0, 8, 0, 0, 0, 0, 11, 0],
+#            [0, 8, 0, 7, 0, 4, 0, 0, 2],
+#            [0, 0, 7, 0, 9, 14, 0, 0, 0],
+#            [0, 0, 0, 9, 0, 10, 0, 0, 0],
+#            [0, 0, 4, 14, 10, 0, 2, 0, 0],
+#            [0, 0, 0, 0, 0, 2, 0, 1, 6],
+#            [8, 11, 0, 0, 0, 0, 1, 0, 7],
+#            [0, 0, 2, 0, 0, 0, 6, 7, 0]
+#            ]
+#
+# g.dijkstra(0)
 
 
 
