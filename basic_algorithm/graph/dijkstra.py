@@ -18,7 +18,6 @@ adjList = {i:[] for i in vList}
 for e1, e2, w in eList:
     adjList[e1].append((e2, w))
 
-print(adjList)
 
 def dijkstra(adjList, s):
     pqueue = []
@@ -45,18 +44,21 @@ def dijkstra(adjList, s):
 
 
 def shortest_path(s, e):
-    route, parent = dijkstra(adjList, s)
+    dist, parent = dijkstra(adjList, s)
     path = [e]
     current = e
-    print(parent)
+    cost = 0
+
     while parent[current]:
         path.insert(0, parent[current])
         current = parent[current]
-    print(path)
+    for v in path:
+        cost += dist[v]
+
     if s not in path:
         return f'"{s}" 에서 "{e}"로 가는 경로가 존재하지 않습니다.'
 
-    return path
+    return f'경로 : {" ".join(path)} \n비용 : {cost}'
 
 
 print(shortest_path('B', 'E'))
