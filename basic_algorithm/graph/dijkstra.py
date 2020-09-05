@@ -22,7 +22,7 @@ for e1, e2, w in eList:
 def dijkstra(adjList, s):
     pqueue = []
     dist = {i:math.inf for i in vList}
-    parent = {i:[] for i in vList}
+    parent = {i:None for i in vList}
     dist[s] = 0
 
     def relax(u, v, w):
@@ -48,7 +48,7 @@ def shortest_path(s, e):
     path = [e]
     current = e
     cost = 0
-
+    print(parent)
     while parent[current]:
         path.insert(0, parent[current])
         current = parent[current]

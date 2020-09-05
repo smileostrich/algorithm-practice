@@ -1,19 +1,24 @@
 import unittest
 
-import math
-from heapdict import heapdict
 
-test = heapdict()
-adjList = {'A': [('B', 10), ('C', 3)], 'B': [('C', 1), ('D', 2)], 'C': [('B', 4), ('D', 8), ('E', 2)], 'D': [('E', 7)], 'E': [('D', 9)]}
-vList = [2,3,4,5,1]
-pqueue = []
-d = d = {i:math.inf for i in vList}
-for v in vList:
-    heapdict.heappush(pqueue, [v, d[v]])
-print(pqueue)
-print(adjList['A'])
-for a,b in adjList['A']:
-    print(a,b)
+li = [1,2,3]
+print(li[1:2])
+
+
+# import math
+# from heapdict import heapdict
+#
+# test = heapdict()
+# adjList = {'A': [('B', 10), ('C', 3)], 'B': [('C', 1), ('D', 2)], 'C': [('B', 4), ('D', 8), ('E', 2)], 'D': [('E', 7)], 'E': [('D', 9)]}
+# vList = [2,3,4,5,1]
+# pqueue = []
+# d = d = {i:math.inf for i in vList}
+# for v in vList:
+#     heapdict.heappush(pqueue, [v, d[v]])
+# print(pqueue)
+# print(adjList['A'])
+# for a,b in adjList['A']:
+#     print(a,b)
 
 # from collections import defaultdict
 #

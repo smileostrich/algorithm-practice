@@ -12,21 +12,21 @@ parent = {}
 # 재귀 사용해서 만듬 (위상정렬, 사이클 유무 문제풀때 편함)
 # 주의 사항 : adjList 만들때 i string/int 여부 확인 string --> int 변환 실수 조심
 
-def dfs_visit(adjList, s):
+def dfs_visit(s):
     for neighbor in adjList[s]:
         if neighbor not in parent:
             parent[neighbor] = s
-            dfs_visit(adjList, neighbor)
+            dfs_visit(neighbor)
 
 
-def dfs(vList, adjList):
+def dfs(vList):
     for s in vList:
         if s not in parent:
             parent[s] = None
-            dfs_visit(adjList, s)
+            dfs_visit(s)
 
 
-dfs(vertexList, adjList)
+dfs(vertexList)
 print(parent)
 
 # 이 아래 소스들은 전부 방문 즉시 종료[= dfs와 bfs 혼합] 즉, 사용하면 안됨

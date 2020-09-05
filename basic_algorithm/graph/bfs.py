@@ -1,7 +1,7 @@
 # 한개의 그래프에서 최단경로 찾기(모든곳 방문)
 adj = {1:[2,5],2:[1,3,5],3:[2],4:[7],5:[1,2,6],6:[5],7:[4]}
 
-def BFS(s, adj):
+def BFS(s):
     level = {s: 0}
     parent = {s: None}
     i = 1
@@ -20,7 +20,7 @@ def BFS(s, adj):
     print(frontier)
     print(parent)
     print(level)
-BFS(1,adj)
+BFS(1)
 
 # deque
 # from collections import deque
