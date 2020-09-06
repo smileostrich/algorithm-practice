@@ -6,7 +6,19 @@ edgeList = [(0,1), (0,2), (1,0), (1,3), (2,0), (2,4), (2,5), (3,1), (4,2), (4,6)
 adjList = {i:[] for i in vertexList}
 for v1, v2 in edgeList:
     adjList[v1].append(v2)
+print(adjList)
 parent = {}
+
+
+parent = {s:None for s in vertexList}
+levelDict = {s: 0}
+level = 0
+for s in vertexList:
+    if s not in parent:
+        while parent[s] == None:
+            parent[i] = level
+            i = adjListhjh[i]
+        level += 1
 
 
 # 재귀 사용해서 만듬 (위상정렬, 사이클 유무 문제풀때 편함)
@@ -19,14 +31,14 @@ def dfs_visit(s):
             dfs_visit(neighbor)
 
 
-def dfs(vList):
-    for s in vList:
+def dfs():
+    for s in vertexList:
         if s not in parent:
             parent[s] = None
             dfs_visit(s)
 
 
-dfs(vertexList)
+dfs()
 print(parent)
 
 # 이 아래 소스들은 전부 방문 즉시 종료[= dfs와 bfs 혼합] 즉, 사용하면 안됨

@@ -4,59 +4,56 @@
 # dfs
 
 
-# elif neighbor in result:
-# result.append(s)
-# elif neighbor == parent[neighbor]:
-# parent[s] = neighbor
-# result.append(s)
-# elif neighbor not in cycleList:
-# current = s
-# cycleList.append(current)
-# for _ in range(time):
-#     current = parent[current]
-#     cycleList.append(current)
+# import sys
+# testcase = int(sys.stdin.readline().rstrip())
+# for _ in range(testcase):
+#     n = int(sys.stdin.readline().rstrip())
+#     choice = [0] + list(map(int, sys.stdin.readline().split()))
+#     visit = [0] * (n+1)
+#     group = 1
+#     for i in range(1, n+1):
+#         if visit[i] == 0:
+#             while visit[i] == 0:
+#                 visit[i] = group
+#                 i = choice[i]
+#             while visit[i] == group:
+#                 visit[i] = -1
+#                 i = choice[i]
+#             group += 1
+#     cnt = 0
+#     for v in visit:
+#         if v > 0:
+#             cnt += 1
+#     print(f'{cnt}')
+
+
 import sys
 
-
-def dfs_v(s):
-    for neighbor in adjList[s]:
-        if neighbor not in parent:
-            parent[neighbor] = s
-            dfs_v(neighbor)
-        elif neighbor == s:
-            parent[neighbor] = s
-            cycleList.append(neighbor)
-        elif (neighbor in result) or neighbor in cycleList:
-            parent[s] = neighbor
-            result.append(s)
-        else:
-            parent[neighbor] = s
-            cycleList.append(s)
-            future = parent[s]
-            while future != s:
-                cycleList.append(future)
-                future = parent[future]
-
+n = int(sys.stdin.readline().rstrip())
+choice = [0] + list(map(int, sys.stdin.readline().split()))
+visit = [0] * (n+1)
+group = 1
+for i in range(1, n+1):
+    if visit[i] == 0:
+        while visit[i] == 0:
+            visit[i] = group
+            i = choice[i]
+        while visit[i] == group:
+            visit[i] = -1
+            i = choice[i]
+        group += 1
+cnt = 0
+for v in visit:
+    if v > 0:
+        cnt += 1
+print(f'{cnt}')
 
 
-def dfs():
-    for s in range(1, A+1):
-        if s not in parent:
-            parent[s] = None
-            dfs_v(s)
-    print(result)
-    print(len(result))
-    print(cycleList)
 
-
-T = int(sys.stdin.readline().rstrip())
-for _ in range(T):
-    A = int(sys.stdin.readline().rstrip())
-    eList = list(map(int, sys.stdin.readline().split()))
-    adjList = {i+1:[] for i in range(A)}
-    parent = {}
-    cycleList = []
-    result = []
-    for idx, i in enumerate(eList):
-        adjList[idx+1].append(i)
-    dfs()
+# parent = {i: None for i in range(1, n+1)}
+# for s in range(1, n+1):
+#     if parent[s] == 0:
+#         for neighbor in adjList[s]:
+#             if neighbor not in parent:
+#                 parent[neighbor] = s
+#                 dfs_visit(neighbor)
