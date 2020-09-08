@@ -1,10 +1,18 @@
 import unittest
 
+# import sys
+# print(dict(map(lambda x: (int(x),[]), sys.stdin.readline().split())))
 
-li = [1,2,3]
-print(li[1:2])
-
-
+n = int(input())
+adj_list = [0 for i in range(n+1)]
+data = list(map(int,input().split()))
+vis = [0]*(n+1)
+cyles = []
+for i in range(n):
+    adj_list[i+1]=data[i]
+print(adj_list)
+print(cyles)
+print(data)
 # import math
 # from heapdict import heapdict
 #

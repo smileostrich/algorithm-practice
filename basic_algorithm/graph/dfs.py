@@ -1,45 +1,66 @@
+import sys
+sys.setrecursionlimit(100000)
+
 # 정점 s(시작점)가 없을때 모든 vertex들을 s로 설정하며 위상정렬, 사이클 유무 등 판단
 vertexList = [0,1,2,3,4,5,6]
 edgeList = [(0,1), (0,2), (1,0), (1,3), (2,0), (2,4), (2,5), (3,1), (4,2), (4,6), (5,2), (6,4)]
 
-
+# adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().split())))
+# adjList = dict(map(lambda x: (int(x),[]), sys.stdin.readline().split()))
 adjList = {i:[] for i in vertexList}
 for v1, v2 in edgeList:
     adjList[v1].append(v2)
 print(adjList)
+# parent = {}
+
+
 parent = {}
+levelDict = {}
+def dfs_visit(s, level):
+    for neighbor in adjList[s]:
+        if neighbor not in parent:
+            parent[neighbor] = s
+            levelDict[s] = level
+            dfs_visit(neighbor, level)
+        if neighbor == level:
+            levelDict[s] = -1
+            dfs_visit(neighbor, level)
 
 
-parent = {s:None for s in vertexList}
-levelDict = {s: 0}
-level = 0
-for s in vertexList:
-    if s not in parent:
-        while parent[s] == None:
-            parent[i] = level
-            i = adjListhjh[i]
-        level += 1
+def dfs():
+    level = 0
+    for s in vertexList:
+        if s not in parent:
+            parent[s] = None
+            levelDict[s] = 0
+            dfs_visit(s, level)
+            level += 1
+    return level
 
+
+print(dfs())
+print(levelDict)
+print(parent)
 
 # 재귀 사용해서 만듬 (위상정렬, 사이클 유무 문제풀때 편함)
 # 주의 사항 : adjList 만들때 i string/int 여부 확인 string --> int 변환 실수 조심
 
-def dfs_visit(s):
-    for neighbor in adjList[s]:
-        if neighbor not in parent:
-            parent[neighbor] = s
-            dfs_visit(neighbor)
-
-
-def dfs():
-    for s in vertexList:
-        if s not in parent:
-            parent[s] = None
-            dfs_visit(s)
-
-
-dfs()
-print(parent)
+# def dfs_visit(s):
+#     for neighbor in adjList[s]:
+#         if neighbor not in parent:
+#             parent[neighbor] = s
+#             dfs_visit(neighbor)
+#
+#
+# def dfs():
+#     for s in vertexList:
+#         if s not in parent:
+#             parent[s] = None
+#             dfs_visit(s)
+#
+#
+# dfs()
+# print(parent)
 
 # 이 아래 소스들은 전부 방문 즉시 종료[= dfs와 bfs 혼합] 즉, 사용하면 안됨
 ############################################################################
