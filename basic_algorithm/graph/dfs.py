@@ -5,14 +5,15 @@ sys.setrecursionlimit(100000)
 vertexList = [0,1,2,3,4,5,6]
 edgeList = [(0,1), (0,2), (1,0), (1,3), (2,0), (2,4), (2,5), (3,1), (4,2), (4,6), (5,2), (6,4)]
 
-# adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().split())))
+
 # adjList = dict(map(lambda x: (int(x),[]), sys.stdin.readline().split()))
 adjList = {i:[] for i in vertexList}
 for v1, v2 in edgeList:
     adjList[v1].append(v2)
 print(adjList)
-# parent = {}
+parent = {}
 
+adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().split())))
 
 parent = {}
 levelDict = {}
@@ -25,7 +26,6 @@ def dfs_visit(s, level):
         if neighbor == level:
             levelDict[s] = -1
             dfs_visit(neighbor, level)
-
 
 def dfs():
     level = 0

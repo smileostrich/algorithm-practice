@@ -2,20 +2,20 @@
 import heapq
 
 
-def heapsort_asc(array):
+def min_heapsort(array):
     h = array.copy()
     heapq.heapify(h)
     return [heapq.heappop(h) for _ in range(len(h))]
 
 
-def heapsort_desc(array):
+def max_heapsort(array):
     h = []
     for i in array:
         heapq.heappush(h, (-i, i))
     return [heapq.heappop(h)[1] for _ in range(len(h))]
 
-print(heapsort_asc([3,7,6,5,4]))
-print(heapsort_desc([3,7,6,5,4]))
+print(min_heapsort([3,7,6,5,4]))
+print(max_heapsort([3,7,6,5,4]))
 
 # way 2
 # def heapsort(array):

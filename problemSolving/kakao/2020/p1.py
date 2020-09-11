@@ -1,81 +1,39 @@
-def solution(s):
-    ssize = len(s)
-    if ssize <= 2:
-        return ssize
+def compress(text, tok_len):
+    words = [text[i:i+tok_len] for i in range(0, len(text), tok_len)]
+    res = []
+    cur_word = words[0]
+    cur_cnt = 1
+    for a, b in zip(words, words[1:] + ['']):
+        if a == b:
+            cur_cnt += 1
+        else:
+            res.append([cur_word, cur_cnt])
+            cur_word = b
+            cur_cnt = 1
+    return sum(len(word) + (len(str(cnt)) if cnt > 1 else 0) for word, cnt in res)
 
-    shortest = ssize
-    mid = ssize // 2
-    for i in range(mid, 0, -1):
-        chunks = [s[k:k + i] for k in range(0, ssize, i)]
-        end = 0
-        if ssize % i != 0:
-            end = len(chunks.pop())
-        visited = []
-        tlist = [1] * len(chunks)
-        t_cnt = 0
+def solution(text):
+    return min(compress(text, tok_len) for tok_len in list(range(1, int(len(text)/2) + 1)) + [len(text)])
 
-        chunks.reverse()
+a = [
+    "aabbaccc",
+    "ababcdcdababcdcd",
+    "abcabcdede",
+    "abcabcabcabcdededededede",
+    "xababcdcdababcdcd",
 
-        def test(current):
-            # if len(chunks) == 0:
-            #     return 0
-            while chunks:
-                neighbor = chunks[-1]
-                if neighbor != current:
-                    visited.append(neighbor)
-                    return 0
-                else:
-                    chunks.pop()
-                    tlist[cnt] += 1
+    'aaaaaa',
+]
 
-        cnt = 0
-        while chunks:
-            current = chunks.pop()
-            if current not in visited:
-                visited.append(current)
-                test(current)
-            else:
-                tlist[cnt] += 1
-            cnt += 1
-
-        # 1은 빼기
-        for v in tlist:
-            if v > 1:
-                t_cnt += 1
-        tmp = (len(visited) * i) + t_cnt + end
-        if shortest > tmp:
-            shortest = tmp
-    print(shortest)
-    return shortest
+for x in a:
+    print(solution(x))
 
 
-# data set
-solution("aabbaccc")
-solution("ababcdcdababcdcd")
-solution("abcabcdede")
-solution("abcabcabcabcdededededede")
-solution("xababcdcdababcdcd")
-
-
-# for idx in range(0, len(chunks) - 1):
-#     ch = chunks[idx]
-#     visited.append(ch)
-#     for j in range(1, len(chunks)):
-#         if chunks[j] != ch:
-#             visited.append(chunks[j])
-#             break
-#         else:
-#             tlist[idx] += 1
-
-
-# test = {}
-#
-# for k in chunks:
-#     if k in test:
-#         test[k] += 1
-#     else:
-#         test[k] = 0
-# for v in test.values():
-#     if v > 1:
-#         t_cnt += 1
-# tmp = (len(test) * i) + t_cnt + end
+# print(list(zip([1,2,3,4,5], [2,3,4,5]+[''])))
+# print([1,2,3,4,5][:-2])
+# 7
+# 9
+# 8
+# 14
+# 17
+# 2
