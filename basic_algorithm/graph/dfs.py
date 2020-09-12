@@ -11,7 +11,6 @@ adjList = {i:[] for i in vertexList}
 for v1, v2 in edgeList:
     adjList[v1].append(v2)
 print(adjList)
-parent = {}
 
 adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().split())))
 

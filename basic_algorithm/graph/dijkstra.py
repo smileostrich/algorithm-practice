@@ -12,12 +12,16 @@ import math
 import heapq
 
 
-vList = ['A', 'B', 'C', 'D', 'E']
-eList = [('A', 'B', 10), ('A', 'C', 3), ('B', 'C', 1), ('C', 'B', 4), ('B', 'D', 2), ('C', 'D', 8), ('D', 'E', 7), ('E', 'D', 9), ('C', 'E', 2)]
-adjList = {i:[] for i in vList}
-for e1, e2, w in eList:
-    adjList[e1].append((e2, w))
-
+# vList = ['A', 'B', 'C', 'D', 'E']
+# eList = [('A', 'B', 10), ('A', 'C', 3), ('B', 'C', 1), ('C', 'B', 4), ('B', 'D', 2), ('C', 'D', 8), ('D', 'E', 7), ('E', 'D', 9), ('C', 'E', 2)]
+# adjList = {i:[] for i in vList}
+#
+# for e1, e2, w in eList:
+#     adjList[e1].append((e2, w))
+vList = [1,2,3,4,5,6]
+eList = [[4, 1, 10], [3, 5, 24], [5, 6, 2], [3, 1, 41], [5, 1, 24], [4, 6, 50], [2, 4, 66], [2, 3, 22], [1, 6, 25]]
+adjList = {1: [(4, 10), (3, 41), (5, 24), (6, 25)], 2: [(4, 66), (3, 22)], 3: [(5, 24), (1, 41), (2, 22)], 4: [(1, 10), (6, 50), (2, 66)], 5: [(3, 24), (6, 2), (1, 24)], 6: [(5, 2), (4, 50), (1, 25)]}
+print(adjList)
 
 def dijkstra(adjList, s):
     pqueue = []
@@ -53,15 +57,18 @@ def shortest_path(s, e):
         path.insert(0, parent[current])
         current = parent[current]
     for v in path:
+        print('v',v)
+        print(dist[v])
         cost += dist[v]
 
     if s not in path:
         return f'"{s}" 에서 "{e}"로 가는 경로가 존재하지 않습니다.'
+    print(path)
+    print(cost)
+    # return f'경로 : {" ".join(path)} \n비용 : {cost}'
 
-    return f'경로 : {" ".join(path)} \n비용 : {cost}'
-
-
-print(shortest_path('B', 'E'))
+# print(shortest_path('B', 'E'))
+print(shortest_path(5, 2))
 
 
 
