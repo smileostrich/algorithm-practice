@@ -1,5 +1,5 @@
 # 만약에 size 있으면 init에 만들어줘야함
-
+# 이거 다시 만들기
 class Deque:
     def __init__(self):
         self.items = []
