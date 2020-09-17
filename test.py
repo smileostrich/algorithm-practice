@@ -1,5 +1,11 @@
 import unittest
 
+import collections
+
+test = defaultdict
+
+
+
 # sec_stack = [1,2,3,4]
 # sec_stack.sort()
 # # print(sec_stack.index(3))
@@ -7,10 +13,10 @@ import unittest
 # sec_stack = sec_stack[:sec_stack.index(3)+1]
 # print(test)
 # print(sec_stack)
-tt = [1]
-while tt:
-    print(1)
-    tt.pop()
+# tt = [1]
+# while tt:
+#     print(1)
+#     tt.pop()
 # import sys
 # print(dict(map(lambda x: (int(x),[]), sys.stdin.readline().split())))
 
