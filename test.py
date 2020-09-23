@@ -5,7 +5,7 @@ import collections
 # 라인 (dfs) 구현해보기
 # dfs 문제 3개 남음 다풀어보기
 
-시뮬레이션 남음
+시뮬레이션 남음(5문제남음)
 test = defaultdict
 def dfs()
 
