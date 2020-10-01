@@ -6,6 +6,9 @@ import collections
 # dfs 문제 3개 남음 다풀어보기
 # kmp 풀어보기
 # string 관련 문제 완료
+def kmp:
+    test
+
 def kmp_matcher(t, d):
     n = len(t)
     m = len(d)
