@@ -37,3 +37,22 @@ def compute_prefix_function(p):
                 pi[k] = 0
                 k = k + 1
     return pi
+
+
+def compute_prefix_function(p):
+    m = len(p)
+    pi = range(m)
+    k = 1
+    l = 0
+    while k < m:
+        if p[k] <= p[l]:
+            l = l + 1
+            pi[k] = l
+            k = k + 1
+        else:
+            if l != 0:
+                l = pi[l - 1]
+            else:
+                pi[k] = 0
+                k = k + 1
+    return pi
