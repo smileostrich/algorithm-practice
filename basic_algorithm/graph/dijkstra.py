@@ -72,6 +72,7 @@ def shortest_path(s, e):
     print(path)
     print(cost)
     # return f'경로 : {" ".join(path)} \n비용 : {cost}'
+    # 이 부분 숙지
 
 # print(shortest_path('B', 'E'))
 print(shortest_path(5, 2))
