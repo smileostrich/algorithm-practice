@@ -24,7 +24,7 @@ class Trie:
         # private helper function
         # Converts key current character into index
         # use only 'a' through 'z' and lower case
-
+        # translate
         return ord(ch) - ord('a')
 
     def insert(self, key):
