@@ -1,3 +1,18 @@
+# re 3차 2020.10.26
+# 5분
+
+# import sys
+#
+# N = int(sys.stdin.readline())
+#
+# li = [int(sys.stdin.readline()) for _ in range(N)]
+# li.sort()
+# for i in li:
+#     print(i)
+
+
+
+
 # re 32분
 # 이 소스 시간초과 뜸 -> 그냥 팀소트(내장 소트 함수) 사용 해야하는듯
 # import sys
@@ -32,21 +47,24 @@
 # for i in nList:
 #     print(i)
 
-def mergeSort(list):
-    if len(list) < 2:
-        return list
-    mid = len(list)//2
-    g1 = mergeSort(list[:mid])
-    g2 = mergeSort(list[mid:])
-    result = []
 
-    while g1 and g2:
-        if g1[0] > g2[0]:
-            result.append(g1.pop(0))
-        else:
-            result.append(g2.pop(0))
-    while g1:
-        result.append(g1.pop(0))
-    while g2:
-        result.append(g2.pop(0))
-    return result
+
+
+# def mergeSort(list):
+#     if len(list) < 2:
+#         return list
+#     mid = len(list)//2
+#     g1 = mergeSort(list[:mid])
+#     g2 = mergeSort(list[mid:])
+#     result = []
+#
+#     while g1 and g2:
+#         if g1[0] > g2[0]:
+#             result.append(g1.pop(0))
+#         else:
+#             result.append(g2.pop(0))
+#     while g1:
+#         result.append(g1.pop(0))
+#     while g2:
+#         result.append(g2.pop(0))
+#     return result
