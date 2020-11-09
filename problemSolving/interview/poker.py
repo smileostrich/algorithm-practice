@@ -1,5 +1,6 @@
 from sys import stdin
 
+# 첫번째 방법
 
 def comb_check(hand_n, hand_s):
     hand_n.sort(reverse=True)
