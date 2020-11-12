@@ -65,13 +65,16 @@ def shortest_path(s, e):
     for v in path:
         print('v',v)
         print(dist[v])
-        cost += dist[v]
+        # cost += dist[v]
+        #여기 체크필요
+        cost = dist[v]
 
     if s not in path:
         return f'"{s}" 에서 "{e}"로 가는 경로가 존재하지 않습니다.'
     print(path)
     print(cost)
-    # return f'경로 : {" ".join(path)} \n비용 : {cost}'
+    return f'path:{path} cost:{cost}'
+    # return f'경로 : {" ".join(str(path))} \n비용 : {cost}'
     # 이 부분 숙지
 
 # print(shortest_path('B', 'E'))
