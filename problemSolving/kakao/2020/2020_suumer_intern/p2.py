@@ -33,3 +33,24 @@
 #     return max(a)
 
 # print(solution("100-200*300-500+20"))
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from sys import stdin
+from itertools import combinations
+
+num_attr = int(stdin.readline().rstrip())
+num_thre = float(stdin.readline().rstrip())
+num_rows = int(stdin.readline().rstrip())
+
+dict_cnt = {}
+for _ in range(num_rows):
+    result = list(combinations(list(map(str, stdin.readline().rstrip().split(','))), num_attr))
+    for test in result:
+        if test in dict_cnt:
+            dict_cnt[test] += 1
+        else:
+            dict_cnt[test] = 1
+
+for k,v in dict_cnt.items():
+    if num_thre <= (v / num_rows):
+        print(f'{",".join(list(k))}')
