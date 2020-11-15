@@ -22,6 +22,8 @@ import heapq
 #     adjList[e1].append((e2, w))
 
 # result 일부 수정 필요
+# result 일부 코드 수정완료
+
 vlist = []
 
 vList = [1,2,3,4,5,6]
