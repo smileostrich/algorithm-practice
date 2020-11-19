@@ -9,18 +9,15 @@ class TrieNode:
 
 
 class Trie:
-
     # Trie data structure class
     def __init__(self):
         self.root = self.getNode()
 
     def getNode(self):
-
         # Returns new trie node (initialized to NULLs)
         return TrieNode()
 
     def _charToIndex(self, ch):
-
         # private helper function
         # Converts key current character into index
         # use only 'a' through 'z' and lower case
@@ -28,7 +25,6 @@ class Trie:
         return ord(ch) - ord('a')
 
     def insert(self, key):
-
         # If not present, inserts key into trie
         # If the key is prefix of trie node,
         # just marks leaf node
@@ -46,7 +42,6 @@ class Trie:
         pCrawl.isEndOfWord = True
 
     def search(self, key):
-
         # Search key in the trie
         # Returns true if key presents
         # in trie, else false
@@ -59,7 +54,6 @@ class Trie:
             pCrawl = pCrawl.children[index]
 
         return pCrawl != None and pCrawl.isEndOfWord
-
     # driver function
 
 
