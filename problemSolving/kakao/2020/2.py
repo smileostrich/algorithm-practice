@@ -1,3 +1,4 @@
+# re
 def mergeSort(kStr):
     if len(kStr) <= 3:
         return kStr
