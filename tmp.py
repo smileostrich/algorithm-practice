@@ -1,22 +1,27 @@
 import sys
-
-testList = []
-
-
-# zip
-p1 = zip([1,2,3,4], [2,3,4,5])
-# 범위 중에서 홀수만
-p2 = list(filter(lambda x: x%2 == 1, [1,2,3,4,5]))
+from itertools import combinations
 
 
+combinations()
 
-testList.append(p1)
-testList.append(p2)
-testList.append(p3)
-testList.append(p4)
-testList.append(p5)
-for i in testList:
-    print(i)
+
+# testList = []
+#
+#
+# # zip
+# p1 = zip([1,2,3,4], [2,3,4,5])
+# # 범위 중에서 홀수만
+# p2 = list(filter(lambda x: x%2 == 1, [1,2,3,4,5]))
+#
+#
+#
+# testList.append(p1)
+# testList.append(p2)
+# testList.append(p3)
+# testList.append(p4)
+# testList.append(p5)
+# for i in testList:
+#     print(i)
 
 
 # import sys
