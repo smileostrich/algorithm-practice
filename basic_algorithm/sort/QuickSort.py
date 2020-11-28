@@ -28,6 +28,20 @@ def partition(list, start, end):
     list[wall], list[end] = pivot, list[wall]
     return wall
 
+# 조금 변형버전
+# def partition(list, start, end):
+#     current = start-1
+#     pivot = list[end]
+#
+#     for comp in range(start, end):
+#         if list[comp] <= pivot:
+#             current += 1
+#             list[current], list[comp] = list[comp], list[current]
+#     list[current+1], list[end] = list[end], list[current+1]
+#     return current + 1
+
+
+
 
 # use while
 # def partition(list, start, end):
@@ -37,7 +51,7 @@ def partition(list, start, end):
 #
 #     while left < pivot:
 #         if list[left] < list[pivot]:
-#             list[wall], list[left] = list[left], list[wall]
+#             list[wall], list[left] = liskjljjt[left], list[wall]
 #             wall += 1
 #         left += 1
 #     list[wall], list[pivot] = list[pivot], list[wall]
