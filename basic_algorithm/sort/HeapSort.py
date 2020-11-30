@@ -18,6 +18,7 @@ print(min_heapsort([3,7,6,5,4]))
 print(max_heapsort([3,7,6,5,4]))
 
 # way 2
+# min heap
 # def heapsort(array):
 #     array = array.copy()
 #     build_min_heap(array)
@@ -50,6 +51,7 @@ print(max_heapsort([3,7,6,5,4]))
 
 
 # way 3
+# max heap
 # def heapsort(a):
 #     def swap(a,i,j):
 #         a[i], a[j] = a[j], a[i]

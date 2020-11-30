@@ -1,18 +1,8 @@
 import sys
 from itertools import combinations
 
-
-def z(n, x, y, flag):
-    if n == 1:
-        print(flag)
-        return flag
-    z(n // 2, x, y, flag)
-    z(n // 2, x + n // 2, y, flag + 1)
-    z(n // 2, x, y + n // 2, flag+2)
-    z(n // 2, x + n // 2, y + n // 2, flag+3)
-
-z(2 ** 2, 0, 0,0)
-
+print([i for i in reversed(range(7//2))])
+print([i for i in range(7//2-1, -1, -1)])
 
 # testList = []
 #
