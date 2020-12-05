@@ -2,9 +2,12 @@ import unittest
 
 import collections
 
-print(-7 % 3)
+# print(-7 % 3)
 
-
+a = [1,2,3,4,5,6,7]
+a[3 + 1:] = reversed(a[3 + 1:])
+a[::2] = [3,3,3,3]
+print(a)
 # flask + terraform
 # spinnaker (git hub 올리기)
 
