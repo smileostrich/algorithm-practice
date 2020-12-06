@@ -1,8 +1,18 @@
 import sys
 from itertools import combinations
 
-print([i for i in reversed(range(7//2))])
-print([i for i in range(7//2-1, -1, -1)])
+
+In = sys.stdin.readline
+
+n = int(In())
+meetings = [(*map(int, In().split()),) for _ in range(n)]
+print(meetings)
+meetings.sort()
+print(meetings)
+
+# print(float('inf'))
+# print([i for i in reversed(range(7//2))])
+# print([i for i in range(7//2-1, -1, -1)])
 
 # testList = []
 #
