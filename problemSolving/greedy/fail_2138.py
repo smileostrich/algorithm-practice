@@ -26,7 +26,7 @@ def chk_las(n):
         return False
 
 cnt_result = 0
-
+bool_result = 0
 if not li_odd:
     print(0)
 elif N == 2:
@@ -34,18 +34,22 @@ elif N == 2:
 else:
     i = 0
     if li_odd == 0:
+        cur_bulb[i] = 1 - cur_bulb[i]
+        # cur_bulb[i+1] = 1 - cur_bulb[i+1]
+        cnt_result += 1
         i += 1
-        cnt_result += 2
-        for c in li_odd:
-            while True:
-                if chk_las(i):
-                    cnt_result += 2
-                else:
-
-    else:
-        while True:
-            li_odd[i] =
-    for c in li_odd:
-        if chk_fir(c):
+    while True:
+        if chk_las(i):
+            if cur_bulb[i-1] != ideal_bulb[i-1]:
+                bool_result = -1
+            else:
+                cnt_result += 2
+            break
+        else:
+            cur_bulb[i] = 1 - cur_bulb[i]
             cnt_result += 2
-
+            i += 1
+if bool_result == -1:
+    print(-1)
+else:
+    print(cnt_result)
