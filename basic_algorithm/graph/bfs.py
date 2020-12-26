@@ -2,26 +2,67 @@
 adj = {1:[2,5],2:[1,3,5],3:[2],4:[7],5:[1,2,6],6:[5],7:[4]}
 # adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().split())))
 # adjList = dict(map(lambda x: (int(x),[]), sys.stdin.readline().split()))
-def BFS(s):
-    level = {s: 0}
-    parent = {s: None}
-    i = 1
-    frontier = [s]
-    while frontier:
-        next = []
-        for u in frontier:
-            for v in adj[u]:
-                if v not in level:
-                    level[v] = i
-                    parent[v] = u
-                    next.append(v)
-        frontier = next
-        i += 1
-    print(i)
-    print(frontier)
-    print(parent)
-    print(level)
-BFS(1)
+
+def bfs(graph, start):
+    vertexList, edgeList = graph
+    visitedList = []
+    queue = [start]
+    adjacencyList = [[] for _ in vertexList]
+
+    for edge in edgeList:
+        adjacencyList[edge[0]].append(edge[1])
+
+    while queue:
+        current = queue.pop(0)
+        for neighbor in adjacencyList[current]:
+            if neighbor not in visitedList:
+                queue.append(neighbor)
+        visitedList.append(current)
+    return visitedList
+
+
+# 용어 변경
+# def BFS(s):
+#     level = {s: 0}
+#     parent = {s: None}
+#     i = 1
+#     queue = [s]
+#     while queue:
+#         next = []
+#         for u in queue:
+#             for neighbor in adj[u]:
+#                 if neighbor not in level:
+#                     level[neighbor] = i
+#                     parent[neighbor] = u
+#                     next.append(neighbor)
+#         queue = next
+#         i += 1
+#     print(parent)
+#     print(level)
+# BFS(1)
+
+
+
+# def BFS(s):
+#     level = {s: 0}
+#     parent = {s: None}
+#     i = 1
+#     frontier = [s]
+#     while frontier:
+#         next = []
+#         for u in frontier:
+#             for v in adj[u]:
+#                 if v not in level:
+#                     level[v] = i
+#                     parent[v] = u
+#                     next.append(v)
+#         frontier = next
+#         i += 1
+#     print(i)
+#     print(frontier)
+#     print(parent)
+#     print(level)
+# BFS(1)
 
 # deque
 # from collections import deque

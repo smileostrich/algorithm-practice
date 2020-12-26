@@ -18,30 +18,43 @@ adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().s
 
 parent = {}
 levelDict = {}
-def dfs_visit(s, level):
-    for neighbor in adjList[s]:
-        if neighbor not in parent:
-            parent[neighbor] = s
-            levelDict[s] = level
-            dfs_visit(neighbor, level)
-        if neighbor == level:
-            levelDict[s] = -1
-            dfs_visit(neighbor, level)
 
-def dfs():
-    level = 0
-    for s in vertexList:
-        if s not in parent:
-            parent[s] = None
-            levelDict[s] = 0
-            dfs_visit(s, level)
-            level += 1
-    return level
+def dfs(adjList, start):
+    visitedList = []
+    stack = [start]
+    while stack:
+        current = stack.pop()
+        for neighbor in adjList[current]:
+            if neighbor not in visitedList:
+                stack.append(neighbor)
+        visitedList.append(current)
+    return visitedList
 
 
-print(dfs())
-print(levelDict)
-print(parent)
+# def dfs_visit(s, level):
+#     for neighbor in adjList[s]:
+#         if neighbor not in parent:
+#             parent[neighbor] = s
+#             levelDict[s] = level
+#             dfs_visit(neighbor, level)
+#         if neighbor == level:
+#             levelDict[s] = -1
+#             dfs_visit(neighbor, level)
+#
+# def dfs():
+#     level = 0
+#     for s in vertexList:
+#         if s not in parent:
+#             parent[s] = None
+#             levelDict[s] = 0
+#             dfs_visit(s, level)
+#             level += 1
+#     return level
+#
+#
+# print(dfs())
+# print(levelDict)
+# print(parent)
 
 # 재귀 사용해서 만듬 (위상정렬, 사이클 유무 문제풀때 편함)
 # 주의 사항 : adjList 만들때 i string/int 여부 확인 string --> int 변환 실수 조심
