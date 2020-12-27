@@ -1,8 +1,7 @@
 from sys import stdin
 
 
-# N, M = map(int, stdin.readline().rstrip().split())
-N, M = 4, 4
+N, M = map(int, stdin.readline().rstrip().split())
 arr = [0*i for i in range(10)]
 isused = [0*i for i in range(10)]
 
@@ -11,7 +10,7 @@ def func(k):
     if k == M:
         for j in range(M):
             print(arr[j], end=' ')
-        print('\n', end=' ')
+        print('\n', end='')
         return 0
     for i in range(1, N + 1):
         if not isused[i]:
