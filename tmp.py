@@ -1,14 +1,23 @@
 import sys
 from itertools import combinations
 
+num1 = 1
+num2 = 2
+def swap(num1, num2):
+    tmp = num1
+    num1 = num2
+    num2 = tmp
+    return num1, num2
+swap(num1,num2)
+print(num1, num2)
 
-In = sys.stdin.readline
-
-n = int(In())
-meetings = [(*map(int, In().split()),) for _ in range(n)]
-print(meetings)
-meetings.sort()
-print(meetings)
+# In = sys.stdin.readline
+#
+# n = int(In())
+# meetings = [(*map(int, In().split()),) for _ in range(n)]
+# print(meetings)
+# meetings.sort()
+# print(meetings)
 
 # print(float('inf'))
 # print([i for i in reversed(range(7//2))])
