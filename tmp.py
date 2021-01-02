@@ -1,15 +1,11 @@
 import sys
 from itertools import combinations
 
-num1 = 1
-num2 = 2
-def swap(num1, num2):
-    tmp = num1
-    num1 = num2
-    num2 = tmp
-    return num1, num2
-swap(num1,num2)
-print(num1, num2)
+import random
+
+li_pr = ['r1','r2', 'r3']
+print(li_pr[random.randrange(0,3)])
+
 
 # In = sys.stdin.readline
 #
