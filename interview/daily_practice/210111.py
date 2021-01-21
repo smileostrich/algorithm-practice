@@ -61,7 +61,7 @@ def fibo_recur(n):
         __fibo_cache[n] = fibo_recur(n-2) + fibo_recur(n-1)
         return __fibo_cache[n]
 
-print(fibo_recur(5))
+# print(fibo_recur(5))
 
 dp_result = {1:1,2:1}
 def fibo_dp(n):
@@ -72,7 +72,7 @@ def fibo_dp(n):
             dp_result[i] = dp_result[i-1] + dp_result[i-2]
         return dp_result[n]
 
-print(fibo_dp(7))
+# print(fibo_dp(7))
 
 def fibo_slide(n):
     if n < 2:
@@ -82,5 +82,20 @@ def fibo_slide(n):
         v0, v1 = v1, v1 + v0
     return v1
 
-print(fibo_slide(7))
+# print(fibo_slide(7))
 
+# 데이터의 개수 N과 전체 데이터 선언
+n = 5
+data = [10, 20, 30, 40, 50]
+
+# 접두사 합(Prefix Sum) 배열 계산
+sum_value = 0
+prefix_sum = [0]
+for i in data:
+    sum_value += i
+    prefix_sum.append(sum_value)
+
+# 구간 합 계산(세 번째 수부터 네 번째 수까지)
+left = 3
+right = 4
+print(prefix_sum[right] - prefix_sum[left - 1])
