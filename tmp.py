@@ -1,12 +1,55 @@
 import sys
 from itertools import combinations
-
+sys.setrecursionlimit(2000)
 import random
 
-li_pr = ['r1','r2', 'r3']
-print(li_pr[random.randrange(0,3)])
+
+def pre(num):
+    if num == 1:
+        return 0
+    if num % 2 == 0:
+        result = num // 2
+        return 1 + collatz(result)
+    else:
+        result = 3 * num + 1
+        return 1 + collatz(result)
 
 
+def collatz(num):
+    tmp = int(pre(num))
+    if tmp > 500:
+        return -1
+    else:
+        return tmp
+print(collatz(6))
+
+
+# def lonely(n):
+#     cnt = 0
+#     result = []
+#     while cnt < len(n):
+#         current = n[cnt]
+#         if current == n[cnt+1]:
+#             result.append(current)
+#             tmp = 1
+#             while cnt+tmp < len(n):
+#                 if current == n[cnt+tmp]:
+#                     tmp += 1
+#                 else:
+#                     break
+#             cnt += tmp
+#         else:
+#             result.append(current)
+#             cnt += 1
+#     return result
+# print(lonely([1,1,3,3,0,1,1]))
+# print(lonely([4,4,4,3,3]))
+
+
+# li_pr = ['r1','r2', 'r3']
+# print(li_pr[random.randrange(0,3)])
+#
+# print('123 456'.strip('1'))
 # In = sys.stdin.readline
 #
 # n = int(In())
