@@ -1,17 +1,23 @@
-import sys
-import re
-
-T = int(1)
-for test_case in range(1, T + 1):
-    # N = int(input())
-    N = 1
-    high = 0
-    # for i in range(100):
-    #     for j in range(100):
-    for i in range(1, 5+1):
-        row = 0
-        for j in range(1, 5+1):
-            row += j
-        if row > high:
-            high = row
-    for k in range(5):
+T = int(10)
+for tc in range(1, T + 1):
+    t = input()
+    result = []
+    matrix = []
+    for _ in range(100):
+        tmp = list(map(int, input().split()))
+        result.append(sum(tmp))
+        matrix.append(tmp)
+    for i in range(100):
+        t_sum = 0
+        dae_1 = 0
+        dae_2 = 0
+        for j in range(100):
+            t_sum += matrix[j][i]
+            if i == j:
+                dae_1 += matrix[i][j]
+            if i+j == 100:
+                dae_2 += matrix[i][j]
+        result.append(t_sum)
+        result.append(dae_1)
+        result.append(dae_2)
+    print(f'#{tc} {max(result)}')
