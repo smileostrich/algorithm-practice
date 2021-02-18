@@ -6,51 +6,25 @@ for _ in range(10):
     for i in range(100):
         tmp = input()
         li_mat.append(tmp)
-
-        cur = 0
-        while cur <= 98:
-            cur_in = 1
-            while cur <= cur_in and cur_in <= 99:
-                for j in range((cur_in-cur)//2):
-                    if tmp[cur+j] != tmp[cur_in-j]:
+        for size in range(0,99):
+            cur = 0
+            while cur <= 100-size:
+                for j in range(size//2):
+                    if tmp[cur+j] != tmp[cur+size-1-j]:
                         break
                 else:
-                    tmp_hi = cur_in-cur+1
-                    if highest < tmp_hi:
-                        highest = tmp_hi
-                cur_in += 1
-            cur += 1
+                    if highest < size:
+                        highest = size
+                cur += 1
+    for k in range(100):
+        for size in range(0,99):
+            cur = 0
+            while cur <= 100-size:
+                for j in range(size//2):
+                    if li_mat[cur+j][k] != li_mat[cur+size-1-j][k]:
+                        break
+                else:
+                    if highest < size:
+                        highest = size
+                cur += 1
     print(f'#{tc} {highest}')
-    # for i in range(100):
-    #     tmp = input()
-    #     li_mat.append(tmp)
-    #
-    #     cur = 0
-    #     while cur <= 98:
-    #         cur_in = 1
-    #         while cur < cur_in and cur_in <= 99:
-    #             for j in range((cur_in-cur)//2):
-    #                 if tmp[cur+j] != tmp[cur_in-j]:
-    #                     break
-    #             else:
-    #                 tmp_hi = cur_in-cur+1
-    #                 if highest < tmp_hi:
-    #                     highest = tmp_hi
-    #             cur_in += 1
-    #         cur += 1
-    # for k in range(100):
-    #     cur = 0
-    #     while cur <= 98:
-    #         cur_in = 1
-    #         while cur < cur_in and cur_in <= 99:
-    #             for j in range((cur_in - cur) // 2):
-    #                 if li_mat[cur + j][k] != li_mat[cur_in - j][k]:
-    #                     break
-    #             else:
-    #                 tmp_hi = cur_in - cur + 1
-    #                 if highest < tmp_hi:
-    #                     highest = tmp_hi
-    #             cur_in += 1
-    #         cur += 1
-
-    # print(f'#{tc} {highest}')

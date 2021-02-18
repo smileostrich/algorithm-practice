@@ -10,7 +10,8 @@ for tc in range(1, T+1):
             if cond == True:
                 break
             for j in range(M // 2):
-                if tmp[i + j] != tmp[N - 1 - j]:
+                if tmp[i + j] != tmp[i+M - j]:
+                # if tmp[i + j] != tmp[N - 1 - j]:
                     break
             else:
                 result = tmp[i:M+i]
@@ -20,7 +21,8 @@ for tc in range(1, T+1):
             break
         for i in range(N-M+2):
             for j in range(M // 2):
-                if li_mat[i + j][k] != li_mat[N - 1 - j][k]:
+                if li_mat[i + j][k] != li_mat[i+M - j][k]:
+                # if li_mat[i + j][k] != li_mat[N - 1 - j][k]:
                     break
             else:
                 result = ''
