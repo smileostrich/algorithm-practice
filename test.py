@@ -2,9 +2,20 @@ import unittest
 
 import collections
 
+
+
+# a = [1,2,3]
+# b = a
+# c = [1,2,3]
+# print(a is b)
+# print(a == b)
+# print(b is c)
+# print(b == c)
+# print(eval(repr(123)))
+
 # print(-7 % 3)
 
-print(5 and 3)
+# print(5 and 3)
 # a = [1,2,3,4,5,6,7]
 # a[3 + 1:] = reversed(a[3 + 1:])
 # a[::2] = [3,3,3,3]
