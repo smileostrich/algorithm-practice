@@ -14,7 +14,8 @@
 - 3499(Done)
 - 1961(Done)
 
-### dp
+### dp or recursion
 - 2005
+- 4869(**fail**)(재귀로 한번 더 풀어보기)
 
 ### dfs
