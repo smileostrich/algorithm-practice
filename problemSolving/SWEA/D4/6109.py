@@ -1,3 +1,71 @@
+def rotate_90(m):
+    N = len(m)
+    ret = [[0] * N for _ in range(N)]
+    for r in range(N):
+        for c in range(N):
+            ret[c][N-1-r] = m[r][c]
+    return ret
+
+
+def rotate_180(m):
+    N = len(m)
+    ret = [[0] * N for _ in range(N)]
+    for r in range(N):
+        for c in range(N):
+            ret[N-1-r][N-1-c] = m[r][c]
+    return ret
+
+
+def rotate_270(m):
+    N = len(m)
+    ret = [[0] * N for _ in range(N)]
+    for r in range(N):
+        for c in range(N):
+            ret[N-1-c][r] = m[r][c]
+    return ret
+
+T = int(input())
+# T = 1
+for tc in range(1, T+1):
+    N, dir = input().split()
+    N = int(N)
+    # N, dir = 5, 'up'
+    matrix = [list(map(int, input().split())) for _ in range(N)]
+    # matrix = [[4, 8, 2, 4, 0],[4, 4, 2, 0, 8],[8, 0, 2, 4, 4],[2, 2, 2, 2, 8],[0, 2, 2, 0, 0]]
+    if dir == 'up':
+        matrix = rotate_270(matrix)
+    elif dir == 'right':
+        matrix = rotate_180(matrix)
+    elif dir == 'down':
+        matrix = rotate_90(matrix)
+    for i in range(N):
+        for j in range(N):
+            for k in range(j+1, N):
+                if matrix[i][k] == matrix[i][j]:
+                    matrix[i][j] *= 2
+                    matrix[i][k] = 0
+                    break
+                elif matrix[i][k] == 0:
+                    continue
+                else:
+                    break
+    for i in range(N):
+        for j in range(N):
+            if matrix[i][j] == 0:
+                for k in range(j + 1, N):
+                    if matrix[i][k] != 0:
+                        matrix[i][j], matrix[i][k] = matrix[i][k], matrix[i][j]
+                        break
+    if dir == 'up':
+        matrix = rotate_90(matrix)
+    elif dir == 'right':
+        matrix = rotate_180(matrix)
+    elif dir == 'down':
+        matrix = rotate_270(matrix)
+    print(f'#{tc}')
+    for i in matrix:
+        print(*i)
+
 # # 추억의 2048게임
 # # import sys
 # #
