@@ -19,37 +19,37 @@ adjList = dict(map(lambda x: (int(x[1]), x[0]), enumerate(sys.stdin.readline().s
 parent = {}
 levelDict = {}
 
-def dfs(adjList, start):
-    visitedList = []
-    stack = [start]
-    while stack:
-        current = stack.pop()
-        for neighbor in adjList[current]:
-            if neighbor not in visitedList:
-                stack.append(neighbor)
-        visitedList.append(current)
-    return visitedList
+# def dfs(adjList, start):
+#     visitedList = []
+#     stack = [start]
+#     while stack:
+#         current = stack.pop()
+#         for neighbor in adjList[current]:
+#             if neighbor not in visitedList:
+#                 stack.append(neighbor)
+#         visitedList.append(current)
+#     return visitedList
 
 
-# def dfs_visit(s, level):
-#     for neighbor in adjList[s]:
-#         if neighbor not in parent:
-#             parent[neighbor] = s
-#             levelDict[s] = level
-#             dfs_visit(neighbor, level)
-#         if neighbor == level:
-#             levelDict[s] = -1
-#             dfs_visit(neighbor, level)
-#
-# def dfs():
-#     level = 0
-#     for s in vertexList:
-#         if s not in parent:
-#             parent[s] = None
-#             levelDict[s] = 0
-#             dfs_visit(s, level)
-#             level += 1
-#     return level
+def dfs_visit(s, level):
+    for neighbor in adjList[s]:
+        if neighbor not in parent:
+            parent[neighbor] = s
+            levelDict[s] = level
+            dfs_visit(neighbor, level)
+        if neighbor == level:
+            levelDict[s] = -1
+            dfs_visit(neighbor, level)
+
+def dfs():
+    level = 0
+    for s in vertexList:
+        if s not in parent:
+            parent[s] = None
+            levelDict[s] = 0
+            dfs_visit(s, level)
+            level += 1
+    return level
 #
 #
 # print(dfs())
