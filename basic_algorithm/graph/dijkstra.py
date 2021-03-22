@@ -100,7 +100,7 @@ print(shortest_path(5, 2))
 #     def printSolution(self, dist):
 #         print("Vertex tDistance from Source")
 #         for node in range(self.V):
-#             print(node, "t", dist[node])
+#             print(node, "li", dist[node])
 #
 #     def minDistance(self, dist, sptSet):
 #         min = sys.maxsize

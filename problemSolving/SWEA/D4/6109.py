@@ -71,7 +71,7 @@ for tc in range(1, T+1):
 # #
 # # sys.stdin = open("input.txt", "r")
 # T = int(input())
-# for t in range(1, T+1):
+# for li in range(1, T+1):
 #     N, direct = input().split()
 #     N = int(N)
 #     board = [list(map(int, input().split())) for _ in range(N)]
@@ -153,7 +153,7 @@ for tc in range(1, T+1):
 #                             board[i][j] = board[i][k]
 #                             board[i][k] = 0
 #                             break
-#     print("#%d" % t )
+#     print("#%d" % li )
 #     for i in range(N):
 #         for j in range(N):
 #             print(board[i][j], end=" ")

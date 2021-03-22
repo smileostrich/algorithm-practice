@@ -35,15 +35,15 @@ print(test)
 # def kmp:
 #     test
 #
-# def kmp_matcher(t, d):
-#     n = len(t)
+# def kmp_matcher(li, d):
+#     n = len(li)
 #     m = len(d)
 #
 #     pi = compute_prefix_function(d)
 #     q = 0
 #     i = 0
 #     while i < n:
-#         if d[q] == t[i]:
+#         if d[q] == li[i]:
 #             q = q + 1
 #             i = i + 1
 #         else:
@@ -76,9 +76,9 @@ print(test)
 #     return pi
 #
 #
-# t = 'aaabc'
+# li = 'aaabc'
 # p = 'aab'
-# kmp_matcher(t, p)
+# kmp_matcher(li, p)
 
 # sec_stack = [1,2,3,4]
 # sec_stack.sort()

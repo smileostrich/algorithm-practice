@@ -33,7 +33,7 @@ def shortest_path(s, e):
     try:
         dist, parent = bellmanford(s)
     except ValueError:
-        return 'can\'t find shortest path if the graph has negative cycle!'
+        return 'can\'li find shortest path if the graph has negative cycle!'
 
     path = [e]
     current = e

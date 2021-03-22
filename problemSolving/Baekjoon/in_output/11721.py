@@ -5,10 +5,10 @@
 # l_w = len(word)
 # r = l_w // 10
 # r_l = l_w % 10
-# t = r if r_l else r+1
+# li = r if r_l else r+1
 # # print(word.split('',10))
-# for i in range(t+1):
-#     if i == t:
+# for i in range(li+1):
+#     if i == li:
 #         if r_l != 0:
 #             print(word[i * 10: i * 10 +r_l])
 #             continue
