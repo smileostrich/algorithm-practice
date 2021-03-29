@@ -1,13 +1,20 @@
 import unittest
 
-import collections
-def tt(N):
-    test[-1] = N
+visited = [[[[False for _ in range(3)] for _ in range(3)] for _ in range(3)] for _ in range(3)]
+print(visited)
+visited[0][0][1][0] = True
+print(visited)
 
-N = 999
-test = [1,2,3,4]
-tt(N)
-print(test)
+
+
+import collections
+# def tt(N):
+#     test[-1] = N
+#
+# N = 999
+# test = [1,2,3,4]
+# tt(N)
+# print(test)
 
 # a = [1,2,3]
 # b = a
