@@ -11,10 +11,19 @@ for i in range(N):
             break
 
 mov_knight = [(1,2),(-1,2),(2,1),(-2,1),(1,-2),(-1,-2),(-2,-1),(2,-1)]
-mov_bishop = [(1,1),(-1,1),(1,-1),(-1,-1)]
-mov_rook = [(0,-1),(-1,0),(1,0),(0,1)]
+mov_bishop = []
+for i in range(N):
+    mov_bishop.append((i,i))
+    mov_bishop.append((-1*i, i))
+    mov_bishop.append((i, -1*i))
+    mov_bishop.append((-1*i, -1*i))
+mov_rook = []
+for i in range(N):
+    mov_rook.append((0,i))
+    mov_rook.append((-1*i, 0))
+    mov_rook.append((0, -1*i))
+    mov_rook.append((i, 0))
 
-# dic_horse = {'rook':0,'knight':1,'bishop':2}
 dic_horse_rev = {0:'rook', 1:'knight', 2:'bishop'}
 visited = [[[[False for _ in range(3)] for _ in range(destination+1)] for _ in range(N)] for _ in range(N)]
 visited[sy][sx][1][0] = True
@@ -23,15 +32,13 @@ visited[sy][sx][1][2] = True
 
 
 def bfs(sx,sy):
-    lowest = 9999999
     time = 0
     position = 1
     frontier = deque([(time, position, sx, sy,'rook'),(time, position, sx, sy,'knight'),(time, position, sx, sy,'bishop')])
     while frontier:
         time, position, cur_x, cur_y, horse = frontier.popleft()
         if position == destination:
-            if lowest > time:
-                lowest = time
+            return time
         for k in range(3):
             if horse == dic_horse_rev[k]:
                 continue
@@ -71,7 +78,6 @@ def bfs(sx,sy):
                     if not visited[new_y][new_x][new_position][0]:
                         visited[new_y][new_x][new_position][0] = True
                         frontier.append((time + 1, new_position, new_x, new_y, 'rook'))
-    return lowest
 print(bfs(sx,sy))
 
 # from collections import deque
