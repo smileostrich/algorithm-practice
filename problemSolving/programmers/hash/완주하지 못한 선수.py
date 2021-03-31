@@ -1,3 +1,4 @@
+# 10분
 def solution(participant, completion):
     test = {}
     for i in participant:
