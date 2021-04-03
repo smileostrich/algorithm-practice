@@ -3,5 +3,8 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/problemSolving/others/pr/others/1.py" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (algo)" project-jdk-type="Python SDK" />
 </project>

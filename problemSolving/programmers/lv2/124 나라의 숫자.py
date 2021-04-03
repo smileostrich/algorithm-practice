@@ -3,7 +3,7 @@ def solution(n):
     answer = ''
     while n:
         answer = str(number[(n-1)%3]) + answer
-        n = (n-1) //3
+        n = (n-1) // 3
     return answer
 
 
