@@ -22,7 +22,6 @@ while dq:
             li_matrix[ty][tx] = 0
         li_matrix[ny][nx] = 2
         tail.append((nx, ny))
-        time
         n_smove = smove
         n_face = face
         if time == int(li_smove[smove][0]):
