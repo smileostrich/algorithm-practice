@@ -1,10 +1,14 @@
 import unittest
 
-visited = [[[[False for _ in range(3)] for _ in range(3)] for _ in range(3)] for _ in range(3)]
-print(visited)
-visited[0][0][1][0] = True
-print(visited)
+# visited = [[[[False for _ in range(3)] for _ in range(3)] for _ in range(3)] for _ in range(3)]
+# print(visited)
+# visited[0][0][1][0] = True
+# print(visited)
 
+from itertools import combinations
+
+print(len(set(combinations(range(52), 5))))
+print(len(list(combinations(range(52), 1))) * len(list(combinations(range(51), 1))) * len(list(combinations(range(50), 1))))
 
 
 import collections
