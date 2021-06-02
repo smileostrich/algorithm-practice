@@ -19,7 +19,8 @@ def heapSort(arr):
     n = len(arr)
 
     # build heap
-    for i in range(n // 2 - 1, -1, -1):
+    # for i in range(n // 2 - 1, -1, -1):
+    for i in range((n-1) // 2, -1, -1):
         max_heapify(arr, n, i)
 
     # sorting
@@ -55,7 +56,7 @@ for i in range(n):
 #             m = node
 #             lc = self.leftChild(node)
 #             rc = self.rightChild(node)
-#             if lc is not None and self.h[lc] > self.h[m]:wdfvcf
+#             if lc is not None and self.h[lc] > self.h[m]:
 #                 m = lc
 #             if rc is not None and self.h[rc] > self.h[m]:
 #                 m = rc
