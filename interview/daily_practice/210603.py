@@ -67,6 +67,17 @@ arr = [1,2,3,4,5,6,7,8,9,10]
 print(binsearch(arr,0, 0,len(arr)-1))
 
 
+def binsearch(arr,target,l,r):
+    if l<=r:
+        mid = l + (r-l)//2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            return binsearch(arr,target, mid+1, r)
+        else:
+            return binsearch(arr,target, l, mid-1)
+
+
 def fibo(n):
     if n == 0:
         return 0

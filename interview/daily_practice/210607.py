@@ -27,13 +27,14 @@ def competition(race):
     for inner in range(0,len(race)-1,4):
         tmp_dic = []
         for val in list(combinations(race[inner:inner + 4],2)):
+
             tmp_dic.append(check(*val))
         res = Counter(tmp_dic).most_common(2)
         winner.append(res[0][0])
         loser.append(res[1][0])
     l16 = []
     for a,b in zip(winner,reversed(loser)):
-        l16.append(check(a,b))
+        l16.append(check(sorted([a,b])))
     l8 = []
     for inner in range(0,7,2):
         l8.append(check(*l16[inner:inner+2]))
