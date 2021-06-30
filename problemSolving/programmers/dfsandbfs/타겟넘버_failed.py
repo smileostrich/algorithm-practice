@@ -1,3 +1,46 @@
+from collections import deque
+
+
+def solution(numbers, target):
+    answer = 0
+    q = deque([(0,0)])
+    size = len(numbers)
+    while q:
+        cur = q.popleft()
+        if cur[0] < size:
+            q.append((cur[0]+1, cur[1] + numbers[cur[0]]))
+            q.append((cur[0]+1, cur[1] - numbers[cur[0]]))
+        elif cur[1] == target:
+            answer += 1
+    return answer
+
+
+print(solution([1,1,1,1,1],3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 풀이 1
 # answer = 0
 # def DFS(idx, numbers, target, value):
@@ -18,19 +61,19 @@
 #     return answer
 
 # 풀이 2
-def solution(numbers, target):
-    answer = 0
-    queue = [(0, 0)]
-    length = len(numbers)
+# def solution(numbers, target):
+#     answer = 0
+#     queue = [(0, 0)]
+#     length = len(numbers)
+#
+#     while queue:
+#         n = queue.pop()
+#         if n[0] < length:
+#             queue.append((n[0] + 1, n[1] + numbers[n[0]]))
+#             queue.append((n[0] + 1, n[1] - numbers[n[0]]))
+#         elif n[1] == target:
+#             answer += 1
 
-    while queue:
-        n = queue.pop()
-        if n[0] < length:
-            queue.append((n[0] + 1, n[1] + numbers[n[0]]))
-            queue.append((n[0] + 1, n[1] - numbers[n[0]]))
-        elif n[1] == target:
-            answer += 1
-
-    return answer
-
-print(solution([1,1,1,1,1],3))
+#     return answer
+#
+# print(solution([1,1,1,1,1],3))

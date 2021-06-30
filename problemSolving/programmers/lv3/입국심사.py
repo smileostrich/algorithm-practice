@@ -1,29 +1,49 @@
-def search(l, r, times, n):
+def search(l,r,times,n):
     ans = -1
     while l <= r:
-        mid = (l+r)//2
+        mid = l + (r-l)//2
         cnt = 0
         for time in times:
             cnt += mid // time
         if cnt >= n:
-            if ans == -1:
-                ans = mid
-            else:
-                ans = min(ans, mid)
-            r = mid -1
-        else:
-            l = mid + 1
-    return ans
+             ㅑㅣㅗㅕㅏㅐ/ㅓ
 
 
 def solution(n, times):
     times.sort()
-    left = 0
-    right = times[-1]*n
-    return search(left, right, times, n)
-
+    l = 0
+    r = times[-1]*n
+    return search(l,r,times,n)
 
 print(solution(6, [7, 10]))
+
+
+# def search(l, r, times, n):
+#     ans = -1
+#     while l <= r:
+#         mid = (l+r)//2
+#         cnt = 0
+#         for time in times:
+#             cnt += mid // time
+#         if cnt >= n:
+#             if ans == -1:
+#                 ans = mid
+#             else:
+#                 ans = min(ans, mid)
+#             r = mid -1
+#         else:
+#             l = mid + 1
+#     return ans
+#
+#
+# def solution(n, times):
+#     times.sort()
+#     left = 0
+#     right = times[-1]*n
+#     return search(left, right, times, n)
+#
+#
+# print(solution(6, [7, 10]))
 
 
 # import heapq
