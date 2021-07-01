@@ -1,5 +1,5 @@
 def solution(N, number):
-    answer = 0
-    return answer
+    cnt = 9
+    
 
 print(solution(5, 12))
