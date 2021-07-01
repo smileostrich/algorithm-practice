@@ -18,6 +18,7 @@ def solution(numbers):
             if tmp[0] != '0':
                 if so(int(tmp)):
                     q.append(int(tmp))
+                    print(tmp)
     return len(set(q))
 
 
@@ -25,7 +26,7 @@ def solution(numbers):
 
 
 
-print(solution("17"))
+print(solution("011"))
 
 
 
