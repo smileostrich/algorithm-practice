@@ -4,24 +4,97 @@ sys.setrecursionlimit(2000)
 import random
 
 
-def pre(num):
-    if num == 1:
-        return 0
-    if num % 2 == 0:
-        result = num // 2
-        return 1 + collatz(result)
-    else:
-        result = 3 * num + 1
-        return 1 + collatz(result)
+# class C:
+#     def __init__(self, a1, a2):
+#         self.a1 = a1
+#         self.a2 = a2
+
+    # def __hash__(self):
+    #     return hash((self.a1, self.a2))
+    #
+    #
+    # def __eq__(self, other):
+    #     return (self.a1, self.a2) == (other.a1, other.a2)
+
+# object_a = C("a", 1)
+# object_b = C("a", 1)
+# object_c = C("b", 2)
+#
+# a_dictionary = {object_a : 3, object_b : 4, object_c : 5}
+# print(a_dictionary[object_a])
+
+# dic_test = {1:'1vl',23:'2vl'}
+# for i in dic_test:
+#     print(i)
+
+def test(arr, r):
+    count = 0
+    dic_tmp = {}
+    dictPairs = {}
+
+    for i in reversed(arr):
+        if i*r in dictPairs:
+            count += dictPairs[i*r]
+        if i*r in dic_tmp:
+            dictPairs[i] = dictPairs.get(i, 0) + dic_tmp[i*r]
+
+        dic_tmp[i] = dic_tmp.get(i, 0) + 1
+
+    return count
+print(test([1,2,4],2))
+
+# def minimumSwaps(arr):
+#     ref_arr = sorted(arr)
+#     index_dict = {v: i for i, v in enumerate(arr)}
+#     swaps = 0
+#
+#     for i, v in enumerate(arr):
+#         correct_value = ref_arr[i]
+#         if v != correct_value:
+#             to_swap_ix = index_dict[correct_value]
+#             arr[to_swap_ix], arr[i] = arr[i], arr[to_swap_ix]
+#             index_dict[v] = to_swap_ix
+#             index_dict[correct_value] = i
+#             swaps += 1
+#
+#     return swaps
+#
+# print(minimumSwaps([7,1,3,2,4,5,6]))
 
 
-def collatz(num):
-    tmp = int(pre(num))
-    if tmp > 500:
-        return -1
-    else:
-        return tmp
-print(collatz(6))
+# def largestRectangle(h):
+#     # Write your code here
+#     h += [0]
+#     s = []
+#     ma = 0
+#     for i in range(0, len(h)):
+#         j = i
+#         while len(s) > 0 and s[-1][0] >= h[i]:
+#             val, j = s.pop()
+#             ma = max(ma, (i - j) * val)
+#         s.append([h[i], j])
+#     return ma
+#
+# print(largestRectangle([5,4,3,2,1]))
+
+# def pre(num):
+#     if num == 1:
+#         return 0
+#     if num % 2 == 0:
+#         result = num // 2
+#         return 1 + collatz(result)
+#     else:
+#         result = 3 * num + 1
+#         return 1 + collatz(result)
+#
+#
+# def collatz(num):
+#     tmp = int(pre(num))
+#     if tmp > 500:
+#         return -1
+#     else:
+#         return tmp
+# print(collatz(6))
 
 
 # def lonely(n):

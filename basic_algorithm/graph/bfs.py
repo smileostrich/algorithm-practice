@@ -22,24 +22,24 @@ def bfs(graph, start):
 
 
 # 용어 변경
-# def BFS(s):
-#     level = {s: 0}
-#     parent = {s: None}
-#     i = 1
-#     queue = [s]
-#     while queue:
-#         next = []
-#         for u in queue:
-#             for neighbor in adj[u]:
-#                 if neighbor not in level:
-#                     level[neighbor] = i
-#                     parent[neighbor] = u
-#                     next.append(neighbor)
-#         queue = next
-#         i += 1
-#     print(parent)
-#     print(level)
-# BFS(1)
+def BFS(s):
+    level = {s: 0}
+    parent = {s: None}
+    i = 1
+    queue = [s]
+    while queue:
+        next = []
+        for u in queue:
+            for neighbor in adj[u]:
+                if neighbor not in level:
+                    level[neighbor] = i
+                    parent[neighbor] = u
+                    next.append(neighbor)
+        queue = next
+        i += 1
+    print(parent)
+    print(level)
+BFS(1)
 
 
 
