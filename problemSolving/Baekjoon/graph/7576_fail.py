@@ -1,3 +1,33 @@
+# 210819
+from collections import deque
+
+m,n = map(int,input().split())
+li_matrix = [list(map(int, input().split())) for _ in range(n)]
+queue = deque([])
+for i in range(n):
+    for j in range(m):
+        if li_matrix[i][j]==1:
+            queue.append([j,i])
+near = [(-1,0), (1,0), (0,-1), (0,1)]
+
+while queue:
+    x, y = queue.popleft()
+    for tx,ty in near:
+        nx, ny = x+tx, y+ty
+        if 0<=nx<m and 0<=ny<n and li_matrix[ny][nx]==0:
+            queue.append([nx,ny])
+            li_matrix[ny][nx] = li_matrix[y][x]+1
+
+result = 0
+for i in li_matrix:
+    for j in i:
+        if j==0:
+            print(-1)
+            exit(0)
+    result = max(result,max(i))
+print(result-1)
+
+
 # 201106
 
 
