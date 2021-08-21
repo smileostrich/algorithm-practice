@@ -5,14 +5,14 @@ def gcd(a,b):
 
 N = int(input())
 li_n = [int(input()) for _ in range(N)]
-li_n.sort(reverse=True)
+li_n.sort()
 li_diff = []
 li_ans = []
 for i in range(1, N):
     li_diff.append(li_n[i] - li_n[i-1])
 
 prev = li_diff[0]
-for i in range(1, N):
+for i in range(1, N-1):
     prev = gcd(prev, li_diff[i])
 for i in range(2, int(prev**0.5) + 1):
     if prev % i == 0:
@@ -21,4 +21,4 @@ for i in range(2, int(prev**0.5) + 1):
 li_ans.append(prev)
 li_ans = list(set(li_ans))
 li_ans.sort()
-prev(*li_ans)
+print(*li_ans)
