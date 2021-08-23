@@ -1,7 +1,7 @@
 # 210819
 from collections import deque
 
-m,n = map(int,input().split())
+m,n = map(int, input().split())
 li_matrix = [list(map(int, input().split())) for _ in range(n)]
 queue = deque([])
 for i in range(n):

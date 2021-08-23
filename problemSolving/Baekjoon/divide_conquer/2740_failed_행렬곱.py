@@ -9,8 +9,3 @@ for q in range(ay):
             li_result[q][w] += li_mata[q][e] * li_matb[e][w]
 for i in li_result:
     print(*i)
-
-
-
-
-
