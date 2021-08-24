@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(100000)
 def dfs(v, group):
     li_visited[v] = group
     for i in dic_adj[v]:
@@ -11,11 +13,11 @@ def dfs(v, group):
 
 T = int(input())
 for _ in range(T):
-    V,E = map(int, input().split())
+    V,E = map(int, sys.stdin.readline().split())
     dic_adj = {i:[] for i in range(1,V+1)}
     li_visited = [0]*(V+1)
     for _ in range(E):
-        a,b = map(int, input().split())
+        a,b = map(int, sys.stdin.readline().split())
         dic_adj[b].append(a)
         dic_adj[a].append(b)
     for i in range(1, V+1):
