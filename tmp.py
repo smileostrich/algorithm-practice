@@ -4,6 +4,20 @@ sys.setrecursionlimit(2000)
 import random
 
 
+# def lis(arr):
+#     if not arr:
+#         return 0
+#
+#     ret = 1
+#     for i in range(len(arr)):
+#         nxt = []
+#         for j in range(i + 1, len(arr)):
+#             if arr[i] < arr[j]:
+#                 nxt.append(arr[j])
+#         ret = max(ret, 1 + lis(nxt))
+#     return ret
+# print(lis([5,2,3]))
+
 # class C:
 #     def __init__(self, a1, a2):
 #         self.a1 = a1
@@ -27,21 +41,21 @@ import random
 # for i in dic_test:
 #     print(i)
 
-def test(arr, r):
-    count = 0
-    dic_tmp = {}
-    dictPairs = {}
-
-    for i in reversed(arr):
-        if i*r in dictPairs:
-            count += dictPairs[i*r]
-        if i*r in dic_tmp:
-            dictPairs[i] = dictPairs.get(i, 0) + dic_tmp[i*r]
-
-        dic_tmp[i] = dic_tmp.get(i, 0) + 1
-
-    return count
-print(test([1,2,4],2))
+# def test(arr, r):
+#     count = 0
+#     dic_tmp = {}
+#     dictPairs = {}
+#
+#     for i in reversed(arr):
+#         if i*r in dictPairs:
+#             count += dictPairs[i*r]
+#         if i*r in dic_tmp:
+#             dictPairs[i] = dictPairs.get(i, 0) + dic_tmp[i*r]
+#
+#         dic_tmp[i] = dic_tmp.get(i, 0) + 1
+#
+#     return count
+# print(test([1,2,4],2))
 
 # def minimumSwaps(arr):
 #     ref_arr = sorted(arr)
