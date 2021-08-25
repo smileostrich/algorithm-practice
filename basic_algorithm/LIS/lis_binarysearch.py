@@ -69,19 +69,31 @@ print(solution(5,[1,2,3,4,5]))
 #
 # print(max(dp))
 
-# way 4 bisect 모듈 사용
-#이진탐색 코드, 같은 수일 경우 왼쪽 index를 돌려준다
-
-# from bisect import bisect_left
-#
+## way 4 n**2 다른방법
 # N = int(input())
 # li_n = list(map(int, input().split()))
 #
-# li_dp = [li_n[0]]
-# for idx in range(1,N):
-#     if li_n[idx] > li_dp[-1]:
-#         li_dp.append(li_n[idx])
-#     else:
-#         insert_idx = bisect_left(li_dp, li_n[idx])
-#         li_dp[insert_idx] = li_n[idx]
-# print(len(li_dp))
+# inc = [1]*N
+#
+# for i in range(N):
+#     for j in range(i):
+#         if li_n[i] > li_n[j] and inc[i] <= inc[j]:
+#             inc[i] = inc[j] + 1
+
+# way 5 bisect 모듈 사용
+#이진탐색 코드, 같은 수일 경우 왼쪽 index를 돌려준다
+from bisect import bisect_left
+
+# N = int(input())
+# li_n = list(map(int, input().split()))
+N = 11
+li_n = [10000,5,2,4,8,9,10,1,7,9,10]
+
+li_dp = [li_n[0]]
+for idx in range(1,N):
+    if li_n[idx] > li_dp[-1]:
+        li_dp.append(li_n[idx])
+    else:
+        insert_idx = bisect_left(li_dp, li_n[idx])
+        li_dp[insert_idx] = li_n[idx]
+print(len(li_dp))
