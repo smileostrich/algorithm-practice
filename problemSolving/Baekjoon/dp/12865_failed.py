@@ -1,5 +1,3 @@
-import sys
-
 N, K = map(int, input().split())
 stuff = [[0, 0]]
 knapsack = [[0 for _ in range(K + 1)] for _ in range(N + 1)]
