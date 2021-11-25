@@ -4,6 +4,14 @@ sys.setrecursionlimit(2000)
 import random
 
 
+# def t1(t1,t2):
+#     print(t1+t2)
+#
+# def t1(t1):
+#     print(t1)
+#
+# t1(1,2)
+
 # def lis(arr):
 #     if not arr:
 #         return 0
