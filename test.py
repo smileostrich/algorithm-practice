@@ -4,44 +4,53 @@ import unittest
 # print(visited)
 # visited[0][0][1][0] = True
 # print(visited)
-
-
-def make_tree(depth, level, flag):
-    global size
-    cnt = depth * 5
-    if depth < size:
-        dic_level[level].append(f'[str({li_tree[cnt+level]})]')
-        if cnt + level + 1 < size:
-            dic_level[level].append(f'--+--[{li_tree[cnt+level+1]}]')
-        else:
-            return
-        if cnt + level + 2 < size:
-            dic_level[level+1].append(f'       +--[{li_tree[cnt+level+2]}]')
-        else:
-            return
-        if cnt + level + 3 < size:
-            dic_level[level+2].append(f'       L--[{li_tree[cnt+level+3]}]')
-        else:
-            return
-        if cnt + level +  < size:
-            dic_level[level].append(f'-----[{li_tree[cnt+4]}]')
-            make_tree(cnt+6,level)
-        else:
-            return result[0] + result[1]+ result[2]
-        if cnt + 5 < size:
-            dic_level[2].append(f'-----[{li_tree[cnt + 5]}]')
-            result[2].append(make_tree(cnt+),level+1,'r')
-        else:
-            return ''.join(result[0]) + result[1]+ result[2]
-    return result
+arr = [2, 4, 5, 8, 10, 11, 12, 13, 16, 17]
+UNIT = 3
+result = []
+cur = arr[0]
+for i in range(0, len(arr)):
+    tmp = []
+    result.append(arr[i:i+UNIT])
+print(result)
 
 
 
-li_tree = [1,2,3,4,5,6,7,8,9]
-dic_level = {}
-level = 0
-size = len(li_tree)
-make_tree(0)
+# def make_tree(depth, level, flag):
+#     global size
+#     cnt = depth * 5
+#     if depth < size:
+#         dic_level[level].append(f'[str({li_tree[cnt+level]})]')
+#         if cnt + level + 1 < size:
+#             dic_level[level].append(f'--+--[{li_tree[cnt+level+1]}]')
+#         else:
+#             return
+#         if cnt + level + 2 < size:
+#             dic_level[level+1].append(f'       +--[{li_tree[cnt+level+2]}]')
+#         else:
+#             return
+#         if cnt + level + 3 < size:
+#             dic_level[level+2].append(f'       L--[{li_tree[cnt+level+3]}]')
+#         else:
+#             return
+#         if cnt + level +  < size:
+#             dic_level[level].append(f'-----[{li_tree[cnt+4]}]')
+#             make_tree(cnt+6,level)
+#         else:
+#             return result[0] + result[1]+ result[2]
+#         if cnt + 5 < size:
+#             dic_level[2].append(f'-----[{li_tree[cnt + 5]}]')
+#             result[2].append(make_tree(cnt+),level+1,'r')
+#         else:
+#             return ''.join(result[0]) + result[1]+ result[2]
+#     return result
+#
+#
+#
+# li_tree = [1,2,3,4,5,6,7,8,9]
+# dic_level = {}
+# level = 0
+# size = len(li_tree)
+# make_tree(0)
 # def tt(N):
 #     test[-1] = N
 #
